@@ -12,35 +12,40 @@
   environment.systemPackages = 
 [ 
 	pkgs.alacritty pkgs.cinnamon.nemo pkgs.fuzzel pkgs.eww-wayland pkgs.mate.mate-polkit
-	pkgs.swaybg pkgs.discord pkgs.keepassxc pkgs.steam pkgs.zsh pkgs.neofetch pkgs.xdg-desktop-portal-gtk
-	pkgs.bibata-cursors pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship pkgs.dolphin-emu pkgs.jetbrains-mono
-	pkgs.zsh-autosuggestions pkgs.catppuccin-gtk  pkgs.catppuccin-kvantum pkgs.catppuccin-papirus-folders
-        pkgs.libsForQt5.qt5ct    pkgs.efibootmgr
+	pkgs.swaybg pkgs.zsh pkgs.neofetch pkgs.xdg-desktop-portal-gtk
+	pkgs.bibata-cursors pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship
+        pkgs.libsForQt5.qt5ct  pkgs.efibootmgr pkgs.htop pkgs.git pkgs.discord pkgs.gnome.gnome-keyring 
  ];
+nixpkgs.overlays =
+  let
+    myOverlay = self: super: {
+      discord = super.discord.override { withOpenASAR = true; withVencord = true; };
+    };
+  in
+  [ myOverlay ];
+
+
    programs.zsh.autosuggestions.enable = true; 
    services.flatpak.enable = true;
    programs.zsh.enable = true;
    hardware.bluetooth.enable = true;
    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-   qt.platformTheme = "qt5ct";
   # Nix settings
    nix.settings.auto-optimise-store = true;
-#  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
+   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
    nixpkgs.config.allowUnfree = true;
 # required for steam
-   programs.steam = {
-  	enable = true;
-  	remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  	dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-};
-  
-
-#pkgs.catppuccin-gtk.override = {
-#  accents = [ "blue" ]; # You can specify multiple accents here to output multiple themes 
-#  size = "compact";
-#  tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
-#  variant = "mocha";
+#   programs.steam = {
+#  	enable = true;
+#  	remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+#  	dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
 #};
+ 
+
+  nix.settings = {
+    substituters = ["https://nix-gaming.cachix.org"];
+    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+  };
   # Use the systemd EFI boot loader.
 
    boot.loader.grub.device = "nodev";
@@ -85,13 +90,26 @@
 
   # Enable sound.
    sound.enable = true;
-   security.rtkit.enable = true;
-   services.pipewire = {
-	enable = true;
-	alsa.enable = true;
-	alsa.support32Bit = true;
-	pulse.enable = true;
-};
+
+ 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+
+#    lowLatency = {
+      # enable this module      
+#      enable = true;
+      # defaults (no need to be set unless modified)
+#      quantum = 64;
+#      rate = 48000;
+    };
+#  };
+  
+  # make pipewire realtime-capable
+  security.rtkit.enable = true;
+
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -106,7 +124,7 @@
 
      ];
    };
-  users.defaultUserShell = pkgs.zsh;
+  users.users.justin.shell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
   # Hyprland 
   programs.hyprland.enable = true;
