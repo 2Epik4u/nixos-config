@@ -11,13 +11,17 @@
     ];
   environment.systemPackages = 
 [ 
-	pkgs.alacritty pkgs.cinnamon.nemo pkgs.fuzzel pkgs.eww-wayland pkgs.mate.mate-polkit
+	pkgs.alacritty pkgs.cinnamon.nemo  pkgs.cinnamon.nemo-fileroller 
+        pkgs.fuzzel pkgs.eww-wayland pkgs.mate.mate-polkit
 	pkgs.swaybg pkgs.zsh pkgs.neofetch pkgs.xdg-desktop-portal-gtk
-	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship
+	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship pkgs.bibata-cursors
         pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.bibata-cursors 
 	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
-	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc pkgs.discord pkgs.steam
+	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc pkgs.discord 
  ];
+
+
+
 nixpkgs.overlays =
   let
     myOverlay = self: super: {

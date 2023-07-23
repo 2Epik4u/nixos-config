@@ -23,9 +23,11 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     
-    pkgs.keepassxc  pkgs.dolphin-emu pkgs.vscode 
- 
-
+    pkgs.keepassxc  pkgs.dolphin-emu  pkgs.libsForQt5.qtstyleplugin-kvantum pkgs.catppuccin-kvantum 
+	(pkgs.catppuccin-kvantum.override {
+      	accent = "Mauve";
+      	variant = "Mocha";
+    	})
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -41,12 +43,12 @@
     # '')
   ];
    programs.git = {
-    enable = true;
+    enable = true; 
     userName = "Justin";
     userEmail = "justinabossmlg@gmail.com";
   };   
    #programs.dconf.enable = true;
-   pointerCursor = {
+   home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 24;
@@ -96,7 +98,13 @@
   };
 
 
+  home.sessionVariables = {
+    QT_STYLE_OVERRIDE = "kvantum";
+  };
 
+  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+    General.Theme = "Catppuccin-Mocha-Mauve";
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -131,6 +139,46 @@
     QT_QPA_PLATFORMTHEME = "qt5ct";
     # EDITOR = "emacs";
   };
+  
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      window = {
+      opacity = 0.7;
+      decorations = "none";
+      padding = {
+        x = 24;
+        y = 24;
+      };
+    };
+      scrolling = {
+          history = 1000;
+          multiplier = 3;
+    };
+    font = {
+        normal.family = "JetBrains Mono Nerd Font ";
+        bold.family = "JetBrains Mono Nerd Font";
+        italic.family = "'JetBrains Mono Nerd Font";
+        size = 13;
+    };
+    color = {
+        primary = {
+            background = "131621";
+            foreground = "a6accd";
+        };
+        normal = {
+          black = "1b1e28";
+          red = "d0679d";
+          green = "5de4c7";
+          yellow = "fffac2";
+          blue = "435c89";
+          magenta = "fcc5e9";
+          cyan =  "add7ff";
+          white = "ffffff";
+        };
+    };
+   };
+};
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
 }
