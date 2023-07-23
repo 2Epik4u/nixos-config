@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs,  ... }:
 
 {
   imports =
@@ -13,8 +13,10 @@
 [ 
 	pkgs.alacritty pkgs.cinnamon.nemo pkgs.fuzzel pkgs.eww-wayland pkgs.mate.mate-polkit
 	pkgs.swaybg pkgs.zsh pkgs.neofetch pkgs.xdg-desktop-portal-gtk
-	pkgs.bibata-cursors pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship
-        pkgs.libsForQt5.qt5ct  pkgs.efibootmgr pkgs.htop pkgs.git pkgs.discord pkgs.gnome.gnome-keyring 
+	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship
+        pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.bibata-cursors 
+	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
+	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc pkgs.discord pkgs.steam
  ];
 nixpkgs.overlays =
   let
@@ -25,21 +27,27 @@ nixpkgs.overlays =
   [ myOverlay ];
 
 
-   programs.zsh.autosuggestions.enable = true; 
+   programs.zsh.autosuggestions.enable = true;
+   programs.dconf.enable = true; 
    services.flatpak.enable = true;
    programs.zsh.enable = true;
    hardware.bluetooth.enable = true;
    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   # Nix settings
    nix.settings.auto-optimise-store = true;
-   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
+   nix = {
+     package = pkgs.nixFlakes;
+     extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+}; 
    nixpkgs.config.allowUnfree = true;
 # required for steam
-#   programs.steam = {
-#  	enable = true;
-#  	remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-#  	dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-#};
+   programs.steam = {
+  	enable = true;
+  	remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  	dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+};
  
 
   nix.settings = {
@@ -52,7 +60,16 @@ nixpkgs.overlays =
    boot.loader.grub.efiSupport = true;
    boot.loader.grub.useOSProber = true;
    boot.loader.efi.canTouchEfiVariables = true;  
-   boot.loader.efi.efiSysMountPoint = "/boot"; 
+   boot.loader.efi.efiSysMountPoint = "/boot";
+   boot.supportedFilesystems = [ "ntfs" ];
+   boot.initrd.kernelModules = [ "amdgpu" ]; 
+
+  # vulkan
+  hardware.opengl.driSupport = true;
+  # For 32 bit applications
+  hardware.opengl.driSupport32Bit = true;
+  # also opengl
+  hardware.opengl.enable = true; 
  
    networking.hostName = "justin-nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -78,6 +95,7 @@ nixpkgs.overlays =
   # Enable the X11 windowing system.
    services.xserver.enable = true;
    services.xserver.displayManager.sddm.enable = true;
+   services.xserver.videoDrivers = [ "amdgpu" ];
 
   
 
@@ -124,9 +142,12 @@ nixpkgs.overlays =
 
      ];
    };
+  # Set shell as well
   users.users.justin.shell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
+
   # Hyprland 
+
   programs.hyprland.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -134,6 +155,7 @@ nixpkgs.overlays =
 	{ device = "/dev/nvme0n1p1";
 	  fsType = "ext4";
 	};
+ 
     
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -141,6 +163,12 @@ nixpkgs.overlays =
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #   wget
   # ];
+   nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 3d";
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -154,6 +182,9 @@ nixpkgs.overlays =
 
   # Enable the OpenSSH daemon.
    services.openssh.enable = true;
+
+  # Security polkit
+   security.polkit.enable = true;	
    
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

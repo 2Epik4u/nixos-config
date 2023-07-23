@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
   
 {
-    imports = [  ];
+  imports = [];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "justin";
@@ -23,9 +23,9 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     
-    pkgs.keepassxc pkgs.steam  pkgs.dolphin-emu
-    pkgs.catppuccin-gtk pkgs.bibata-cursors pkgs.btop
-     #inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
+    pkgs.keepassxc  pkgs.dolphin-emu pkgs.vscode 
+ 
+
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -40,9 +40,13 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
+   programs.git = {
+    enable = true;
+    userName = "Justin";
+    userEmail = "justinabossmlg@gmail.com";
+  };   
    #programs.dconf.enable = true;
-   home.pointerCursor = {
+   pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 24;
@@ -75,6 +79,23 @@
     };
   };
 
+  
+  programs.starship = {
+    enable = true;
+    # Configuration written to ~/.config/starship.toml
+    settings = {
+      # add_newline = false;
+
+      # character = {
+      #   success_symbol = "[➜](bold green)";
+      #   error_symbol = "[➜](bold red)";
+      # };
+
+      # package.disabled = true;
+    };
+  };
+
+
 
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -103,8 +124,13 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
+    EDITOR = "vim";
+    BROWSER = "firefox";
+    NIXPKGS_ALLOW_UNFREE = "1";
+    QT_QPA_PLATFORM = "xcb";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
     # EDITOR = "emacs";
   };
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs.home-manager.enable = true; 
 }
