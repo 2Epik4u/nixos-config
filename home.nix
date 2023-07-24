@@ -18,12 +18,14 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = _: true; 
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     
-    pkgs.keepassxc  pkgs.dolphin-emu  pkgs.libsForQt5.qtstyleplugin-kvantum pkgs.catppuccin-kvantum 
+    pkgs.keepassxc  pkgs.dolphin-emu pkgs.qbittorrent  
+    pkgs.libsForQt5.kwalletmanager pkgs.libsForQt5.qtstyleplugin-kvantum pkgs.catppuccin-kvantum 
+    pkgs.wineWowPackages.waylandFull pkgs.lutris pkgs.steam pkgs.imv pkgs.protontricks
 	(pkgs.catppuccin-kvantum.override {
       	accent = "Mauve";
       	variant = "Mocha";
@@ -42,20 +44,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-   programs.git = {
-    enable = true; 
-    userName = "Justin";
-    userEmail = "justinabossmlg@gmail.com";
-  };   
-   #programs.dconf.enable = true;
-   home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-    gtk.enable = true;
-    x11.enable = true;
-  };
 
+ # set theme 
   gtk = {
     enable = true;
 
@@ -80,23 +70,15 @@
       };
     };
   };
-
   
-  programs.starship = {
-    enable = true;
-    # Configuration written to ~/.config/starship.toml
-    settings = {
-      # add_newline = false;
-
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-
-      # package.disabled = true;
-    };
+ # set cursor
+   home.pointerCursor = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
   };
-
 
   home.sessionVariables = {
     QT_STYLE_OVERRIDE = "kvantum";
@@ -139,7 +121,16 @@
     QT_QPA_PLATFORMTHEME = "qt5ct";
     # EDITOR = "emacs";
   };
-  
+
+# programs  
+
+   programs.git = {
+    enable = true; 
+    userName = "Justin";
+    userEmail = "justinabossmlg@gmail.com";
+  };   
+
+
   programs.alacritty = {
     enable = true;
     settings = {
@@ -163,22 +154,93 @@
     };
     color = {
         primary = {
-            background = "131621";
-            foreground = "a6accd";
+            background = "#1E1E2E";
+            foreground = "#CDD6F4";
+	    dim_foreground = "#CDD6F4";
+	    bright_foreground = "#CDD6F4";
         };
         normal = {
-          black = "1b1e28";
-          red = "d0679d";
-          green = "5de4c7";
-          yellow = "fffac2";
-          blue = "435c89";
-          magenta = "fcc5e9";
-          cyan =  "add7ff";
-          white = "ffffff";
+          black = "#CDD6F4";
+          red = "#F38BA8";
+          green = "#A6E3A1";
+          yellow = "#F9E2AF";
+          blue = "#89B4FA";
+          magenta = "#F5C2E7";
+          cyan =  "#94E2D5";
+          white = "#BAC2DE";
         };
     };
    };
 };
+  
+  programs.starship = {
+    enable = true;
+    # Configuration written to ~/.config/starship.toml
+    settings = {
+      # add_newline = false;
+
+      # character = {
+      #   success_symbol = "[➜](bold green)";
+      #   error_symbol = "[➜](bold red)";
+      # };
+
+      # package.disabled = true;
+    };
+  };
+
+  # notification daemon
+  services.dunst = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    settings = {
+      global = {
+        alignment = "center";
+        corner_radius = 16;
+        follow = "mouse";
+        font = "Roboto 10";
+        format = "<b>%s</b>\\n%b";
+        frame_width = 1;
+        offset = "5x5";
+        horizontal_padding = 8;
+        icon_position = "left";
+        indicate_hidden = "yes";
+        markup = "yes";
+        max_icon_size = 64;
+        mouse_left_click = "do_action";
+        mouse_middle_click = "close_all";
+        mouse_right_click = "close_current";
+        padding = 8;
+        plain_text = "no";
+        separator_color = "auto";
+        separator_height = 1;
+        show_indicators = false;
+        shrink = "no";
+        word_wrap = "yes";
+      };
+
+      fullscreen_delay_everything = {fullscreen = "delay";};
+
+      urgency_critical = {
+        background = "900000";
+        foreground =  "#ffffff";
+        frame_color = "#ff0000";
+      };
+      urgency_low = {
+        background = "222222";
+        foreground = "#888888";
+#     frame_color = default.xcolors.blue;
+      };
+      urgency_normal = {
+        background = "#1E1E2E";
+        foreground = "#ffffff";
+#     frame_color = default.xcolors.green;
+      };
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
 }

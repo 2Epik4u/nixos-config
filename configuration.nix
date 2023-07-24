@@ -9,13 +9,14 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = 
 [ 
 	pkgs.alacritty pkgs.cinnamon.nemo  pkgs.cinnamon.nemo-fileroller 
         pkgs.fuzzel pkgs.eww-wayland pkgs.mate.mate-polkit
 	pkgs.swaybg pkgs.zsh pkgs.neofetch pkgs.xdg-desktop-portal-gtk
 	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship pkgs.bibata-cursors
-        pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.bibata-cursors 
+        pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.dunst 
 	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
 	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc pkgs.discord 
  ];
@@ -30,10 +31,12 @@ nixpkgs.overlays =
   in
   [ myOverlay ];
 
-
+   
    programs.zsh.autosuggestions.enable = true;
+
    programs.dconf.enable = true; 
    services.flatpak.enable = true;
+   fonts.fontDir.enable = true;
    programs.zsh.enable = true;
    hardware.bluetooth.enable = true;
    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
@@ -45,7 +48,7 @@ nixpkgs.overlays =
     experimental-features = nix-command flakes
   '';
 }; 
-   nixpkgs.config.allowUnfree = true;
+  
 # required for steam
    programs.steam = {
   	enable = true;
@@ -199,7 +202,7 @@ nixpkgs.overlays =
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-#   system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
