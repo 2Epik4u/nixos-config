@@ -17,7 +17,7 @@
 	pkgs.swaybg pkgs.zsh pkgs.neofetch pkgs.xdg-desktop-portal-gtk
 	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship pkgs.bibata-cursors
         pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.dunst 
-	#inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
+	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
 	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc pkgs.discord pkgs.firefox-wayland 
  ];
 
