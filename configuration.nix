@@ -12,15 +12,16 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = 
 [ 
-	pkgs.alacritty pkgs.cinnamon.nemo  pkgs.cinnamon.nemo-fileroller 
+	pkgs.alacritty pkgs.libsForQt5.dolphin pkgs.gnome.file-roller
         pkgs.fuzzel pkgs.eww-wayland pkgs.mate.mate-polkit
 	pkgs.swaybg pkgs.zsh pkgs.neofetch pkgs.xdg-desktop-portal-gtk
 	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship pkgs.bibata-cursors
         pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.dunst 
-	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
-	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc pkgs.discord 
+	#inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
+	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc pkgs.discord pkgs.firefox-wayland 
  ];
 
+services.gvfs.enable = true; # Mount, trash, and other functionalities
 
 
 nixpkgs.overlays =
@@ -38,7 +39,10 @@ nixpkgs.overlays =
    services.flatpak.enable = true;
    fonts.fontDir.enable = true;
    programs.zsh.enable = true;
+   # Bluetooth
    hardware.bluetooth.enable = true;
+   services.blueman.enable = true;
+
    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   # Nix settings
    nix.settings.auto-optimise-store = true;
@@ -145,7 +149,6 @@ nixpkgs.overlays =
      home = "/home/justin";
      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
-       firefox
 
      ];
    };
@@ -156,14 +159,18 @@ nixpkgs.overlays =
   # Hyprland 
 
   programs.hyprland.enable = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
+  
 
-  fileSystems."/mnt/archlinux" =
-	{ device = "/dev/nvme0n1p1";
-	  fsType = "ext4";
-	};
+
+
+
  
-    
+  # variables
+  environment.sessionVariables = {
+	MOZ_ENABLE_WAYLAND = "1";  
+	NIXOS_OZONE_WL = "1";
+};
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # environment.systemPackages = with pkgs; [

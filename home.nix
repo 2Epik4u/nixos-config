@@ -19,28 +19,28 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   nixpkgs.config.allowUnfreePredicate = _: true; 
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     
-    pkgs.keepassxc  pkgs.dolphin-emu pkgs.qbittorrent  
-    pkgs.libsForQt5.kwalletmanager pkgs.libsForQt5.qtstyleplugin-kvantum pkgs.catppuccin-kvantum 
-    pkgs.wineWowPackages.waylandFull pkgs.lutris pkgs.steam pkgs.imv pkgs.protontricks
-	(pkgs.catppuccin-kvantum.override {
-      	accent = "Mauve";
-      	variant = "Mocha";
-    	})
-
+    keepassxc  dolphin-emu qbittorrent krita 
+    libsForQt5.kwalletmanager wineWowPackages.waylandFull lutris steam imv protontricks
+      # credits: yavko
+      # catppuccin theme for qt-apps
+      qt5.qttools
+      qt6Packages.qtstyleplugin-kvantum
+      libsForQt5.qtstyleplugin-kvantum
+      libsForQt5.qt5ct
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
+    # (writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
@@ -80,13 +80,41 @@
     x11.enable = true;
   };
 
-  home.sessionVariables = {
-    QT_STYLE_OVERRIDE = "kvantum";
-  };
 
-  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-    General.Theme = "Catppuccin-Mocha-Mauve";
-  };
+    xdg.configFile."kdeglobals".source = "${(pkgs.catppuccin-kde.override {
+      flavour = ["mocha"];
+      accents = ["blue"];
+      winDecStyles = ["modern"];
+    })}/share/color-schemes/CatppuccinMochaBlue.colors";
+    qt = {
+      enable = true;
+      # platformTheme = "gtk"; # just an override for QT_QPA_PLATFORMTHEME, takes "gtk" or "gnome"
+      style = {
+        package = pkgs.catppuccin-kde;
+        name = "Catpuccin-Mocha-Dark";
+      };
+    };
+
+
+    xdg.configFile."Kvantum/catppuccin/catppuccin.kvconfig".source = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Mocha-Blue/Catppuccin-Mocha-Blue.kvconfig";
+      sha256 = "1f8xicnc5696g0a7wak749hf85ynfq16jyf4jjg4dad56y4csm6s";
+    };
+
+    xdg.configFile."Kvantum/catppuccin/catppuccin.svg".source = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Mocha-Blue/Catppuccin-Mocha-Blue.svg";
+      sha256 = "0vys09k1jj8hv4ra4qvnrhwxhn48c2gxbxmagb3dyg7kywh49wvg";
+    };
+
+
+    xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=catppuccin
+
+      [Applications]
+      catppuccin=qt5ct, org.kde.dolphin, org.kde.kalendar, org.qbittorrent.qBittorrent, hyprland-share-picker, dolphin-emu, Nextcloud, nextcloud
+    '';
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -117,9 +145,12 @@
     EDITOR = "vim";
     BROWSER = "firefox";
     NIXPKGS_ALLOW_UNFREE = "1";
-    QT_QPA_PLATFORM = "xcb";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    # EDITOR = "emacs";
+     QT_STYLE_OVERRIDE = "kvantum";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      DISABLE_QT5_COMPAT = "0";
+      CALIBRE_USE_DARK_PALETTE = "1";
   };
 
 # programs  
@@ -198,7 +229,7 @@
     settings = {
       global = {
         alignment = "center";
-        corner_radius = 16;
+        corner_radius = 20;
         follow = "mouse";
         font = "Roboto 10";
         format = "<b>%s</b>\\n%b";
@@ -240,7 +271,7 @@
       };
     };
   };
-
+  
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
 }
