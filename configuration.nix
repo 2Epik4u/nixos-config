@@ -10,29 +10,21 @@
       ./hardware-configuration.nix
     ];
   nixpkgs.config.allowUnfree = true;
+  
   environment.systemPackages = 
 [ 
 	pkgs.alacritty pkgs.libsForQt5.dolphin pkgs.gnome.file-roller
         pkgs.fuzzel pkgs.eww-wayland pkgs.mate.mate-polkit
-	pkgs.swaybg pkgs.zsh pkgs.neofetch pkgs.xdg-desktop-portal-gtk
+	pkgs.swaybg pkgs.zsh pkgs.neofetch 
 	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship pkgs.bibata-cursors
         pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.dunst 
-	#inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
-	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc pkgs.discord pkgs.firefox-wayland 
+	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
+	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc  pkgs.firefox-wayland pkgs.armcord
  ];
 
 services.gvfs.enable = true; # Mount, trash, and other functionalities
 
-
-nixpkgs.overlays =
-  let
-    myOverlay = self: super: {
-      discord = super.discord.override { withOpenASAR = true; withVencord = true; };
-    };
-  in
-  [ myOverlay ];
-
-   
+ 
    programs.zsh.autosuggestions.enable = true;
 
    programs.dconf.enable = true; 
@@ -217,7 +209,7 @@ nixpkgs.overlays =
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = builtins.trace (builtins.attrNames inputs) "23.05"; # Did you read the comment?
 
 }
 
