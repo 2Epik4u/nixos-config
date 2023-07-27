@@ -30,7 +30,7 @@
       qt5.qttools
       libsForQt5.qt5ct
       qt6Packages.qt6ct
-      pkgs.lightly-qt	
+      lightly-qt	
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
