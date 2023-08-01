@@ -8,18 +8,20 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.nix-gaming.nixosModules.pipewireLowLatency 
     ];
   nixpkgs.config.allowUnfree = true;
   
   environment.systemPackages = 
 [ 
-	pkgs.alacritty pkgs.libsForQt5.dolphin pkgs.gnome.file-roller
+	pkgs.alacritty  pkgs.gnome.file-roller
+	pkgs.cinnamon.nemo-with-extensions pkgs.cinnamon.nemo pkgs.eww-wayland
         pkgs.fuzzel pkgs.eww-wayland pkgs.mate.mate-polkit
-	pkgs.swaybg pkgs.zsh pkgs.neofetch 
+	pkgs.swaybg pkgs.zsh pkgs.neofetch  
 	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship pkgs.bibata-cursors
         pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.dunst 
-	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast  inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
-	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc  pkgs.firefox-wayland pkgs.armcord
+	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast      
+	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc  pkgs.firefox-wayland pkgs.armcord pkgs.vim
  ];
 
 services.gvfs.enable = true; # Mount, trash, and other functionalities
@@ -119,14 +121,14 @@ services.gvfs.enable = true; # Mount, trash, and other functionalities
     alsa.support32Bit = true;
     pulse.enable = true;
 
-#    lowLatency = {
+    lowLatency = {
       # enable this module      
-#      enable = true;
+      enable = true;
       # defaults (no need to be set unless modified)
-#      quantum = 64;
-#      rate = 48000;
+      quantum = 64;
+      rate = 48000;
     };
-#  };
+  };
   
   # make pipewire realtime-capable
   security.rtkit.enable = true;
@@ -209,7 +211,7 @@ services.gvfs.enable = true; # Mount, trash, and other functionalities
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = builtins.trace (builtins.attrNames inputs) "23.05"; # Did you read the comment?
+  system.stateVersion =  "23.11";  #did you read the comment?
 
 }
 

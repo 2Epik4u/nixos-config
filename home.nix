@@ -1,7 +1,10 @@
 { config, pkgs, inputs, ... }:
   
 {
-  imports = [];
+  imports = [
+
+
+  ]; 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "justin";
@@ -14,7 +17,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-#  home.stateVersion = "23.05"; # Please read the comment before changing.
+  home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -22,15 +25,17 @@
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    
+            
     keepassxc  dolphin-emu qbittorrent krita inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge 
-    libsForQt5.kwalletmanager wineWowPackages.waylandFull lutris steam imv protontricks
+    libsForQt5.kwalletmanager wineWowPackages.waylandFull lutris steam imv protontricks # inputs.fufexan-dotfiles.packages."x86_64-linux".eww-hyprland
       # credits: yavko
       # catppuccin theme for qt-apps
       qt5.qttools
       libsForQt5.qt5ct
       qt6Packages.qt6ct
       lightly-qt	
+
+
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -252,13 +257,8 @@
       };
     };
   };
-  
-                                           
-                 
-            
-                                  
-						      
-home.stateVersion = builtins.trace (builtins.attrNames inputs) "23.05";
+ 
+            				      
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
 }
