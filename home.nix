@@ -25,15 +25,15 @@
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-            
-    keepassxc  dolphin-emu qbittorrent krita inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge 
+    keepassxc  dolphin-emu qbittorrent krita inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge pkgs.obs-studio
     libsForQt5.kwalletmanager wineWowPackages.waylandFull lutris steam imv protontricks # inputs.fufexan-dotfiles.packages."x86_64-linux".eww-hyprland
       # credits: yavko
       # catppuccin theme for qt-apps
       qt5.qttools
+      qt6Packages.qtstyleplugin-kvantum
+      libsForQt5.qtstyleplugin-kvantum
       libsForQt5.qt5ct
-      qt6Packages.qt6ct
-      lightly-qt	
+      	
 
 
 
@@ -100,6 +100,24 @@
         name = "Catpuccin-Mocha-Dark";
       };
     };
+        xdg.configFile."Kvantum/catppuccin/catppuccin.kvconfig".source = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Mocha-Blue/Catppuccin-Mocha-Blue.kvconfig";
+      sha256 = "1f8xicnc5696g0a7wak749hf85ynfq16jyf4jjg4dad56y4csm6s";
+    };
+
+    xdg.configFile."Kvantum/catppuccin/catppuccin.svg".source = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Mocha-Blue/Catppuccin-Mocha-Blue.svg";
+      sha256 = "0vys09k1jj8hv4ra4qvnrhwxhn48c2gxbxmagb3dyg7kywh49wvg";
+    };
+
+
+    xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=catppuccin
+
+      [Applications]
+      catppuccin=qt5ct, org.kde.dolphin, org.kde.kalendar, org.qbittorrent.qBittorrent, hyprland-share-picker, dolphin-emu, Nextcloud, nextcloud
+    '';
 
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -131,12 +149,12 @@
     EDITOR = "vim";
     BROWSER = "firefox";
     NIXPKGS_ALLOW_UNFREE = "1";
-     #QT_STYLE_OVERRIDE = "Lightly";
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      QT_QPA_PLATFORM = "wayland;xcb";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      DISABLE_QT5_COMPAT = "0";
-      CALIBRE_USE_DARK_PALETTE = "1";
+    QT_STYLE_OVERRIDE = "kvantum";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    DISABLE_QT5_COMPAT = "0";
+    CALIBRE_USE_DARK_PALETTE = "1";
   };
 
 # programs  
@@ -145,6 +163,11 @@
     enable = true; 
     userName = "Justin";
     userEmail = "justinabossmlg@gmail.com";
+    extraConfig = {
+      credential.helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        }/bin/git-credential-libsecret";
+    };
   };   
 
 

@@ -21,10 +21,16 @@
 	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship pkgs.bibata-cursors
         pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.dunst 
 	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast      
-	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc  pkgs.firefox-wayland pkgs.armcord pkgs.vim
+	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc  pkgs.firefox-wayland pkgs.discord pkgs.vim
  ];
-
-services.gvfs.enable = true; # Mount, trash, and other functionalities
+   nixpkgs.overlays =
+  let
+    myOverlay = self: super: {
+      discord = super.discord.override { withOpenASAR = true; withVencord = true; };
+    };
+  in
+  [ myOverlay ];
+   services.gvfs.enable = true; # Mount, trash, and other functionalities
 
  
    programs.zsh.autosuggestions.enable = true;
