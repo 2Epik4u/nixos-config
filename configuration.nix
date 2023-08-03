@@ -8,21 +8,32 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # pipewire package
       inputs.nix-gaming.nixosModules.pipewireLowLatency 
+      
+      # home pkgs
+      ./alacritty.nix
+      ./dunst.nix
+      ./git.nix
+      ./gtk.nix
+      ./qt.nix
+      ./starship.nix
     ];
   nixpkgs.config.allowUnfree = true;
   
   environment.systemPackages = 
 [ 
+	# sorta essential
 	pkgs.alacritty  pkgs.gnome.file-roller
-	pkgs.cinnamon.nemo-with-extensions pkgs.cinnamon.nemo pkgs.eww-wayland
-        pkgs.fuzzel pkgs.eww-wayland pkgs.mate.mate-polkit
-	pkgs.swaybg pkgs.zsh pkgs.neofetch  
-	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship pkgs.bibata-cursors
+	pkgs.cinnamon.nemo-with-extensions pkgs.cinnamon.nemo
+	pkgs.fuzzel pkgs.mate.mate-polkit pkgs.zsh pkgs.vim
+	# everything else
+	pkgs.mpv pkgs.swaybg  pkgs.neofetch  
+	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship 
         pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.dunst 
 	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast      
-	pkgs.btop pkgs.gnome.seahorse pkgs.keepassxc  pkgs.firefox-wayland pkgs.discord pkgs.vim
- ];
+	pkgs.htop pkgs.gnome.seahorse pkgs.keepassxc  pkgs.firefox-wayland pkgs.discord 
+];
    nixpkgs.overlays =
   let
     myOverlay = self: super: {
@@ -180,7 +191,7 @@
    nix.gc = {
     automatic = true;
     dates = "daily";
-    options = "--delete-older-than 3d";
+    options = "--delete-older-than 1d";
   };
 
 

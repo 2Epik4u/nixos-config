@@ -3,7 +3,6 @@
 {
   imports = [
 
-
   ]; 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -51,73 +50,8 @@
     # '')
   ];
 
- # set theme 
-  gtk = {
-    enable = true;
-
-    font = {
-      name = "Roboto";
-      package = pkgs.roboto;
-    };
-
-    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-
-    theme = {
-      name = "Catppuccin-Mocha-Compact-Mauve-dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["mauve"];
-        size = "compact";
-        variant = "mocha";
-      };
-    };
-  };
-  
- # set cursor
-   home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-    gtk.enable = true;
-    x11.enable = true;
-  };
 
 
-    xdg.configFile."kdeglobals".source = "${(pkgs.catppuccin-kde.override {
-      flavour = ["mocha"];
-      accents = ["blue"];
-      winDecStyles = ["modern"];
-    })}/share/color-schemes/CatppuccinMochaBlue.colors";
-    qt = {
-      enable = true;
-      # platformTheme = "gtk"; # just an override for QT_QPA_PLATFORMTHEME, takes "gtk" or "gnome"
-      style = {
-        package = pkgs.catppuccin-kde;
-        name = "Catpuccin-Mocha-Dark";
-      };
-    };
-        xdg.configFile."Kvantum/catppuccin/catppuccin.kvconfig".source = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Mocha-Blue/Catppuccin-Mocha-Blue.kvconfig";
-      sha256 = "1f8xicnc5696g0a7wak749hf85ynfq16jyf4jjg4dad56y4csm6s";
-    };
-
-    xdg.configFile."Kvantum/catppuccin/catppuccin.svg".source = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Mocha-Blue/Catppuccin-Mocha-Blue.svg";
-      sha256 = "0vys09k1jj8hv4ra4qvnrhwxhn48c2gxbxmagb3dyg7kywh49wvg";
-    };
-
-
-    xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=catppuccin
-
-      [Applications]
-      catppuccin=qt5ct, org.kde.dolphin, org.kde.kalendar, org.qbittorrent.qBittorrent, hyprland-share-picker, dolphin-emu, Nextcloud, nextcloud
-    '';
 
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -157,130 +91,9 @@
     CALIBRE_USE_DARK_PALETTE = "1";
   };
 
-# programs  
-
-   programs.git = {
-    enable = true; 
-    userName = "Justin";
-    userEmail = "justinabossmlg@gmail.com";
-    extraConfig = {
-      credential.helper = "${
-          pkgs.git.override { withLibsecret = true; }
-        }/bin/git-credential-libsecret";
-    };
-  };   
 
 
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      window = {
-      opacity = 0.7;
-      decorations = "none";
-      padding = {
-        x = 24;
-        y = 24;
-      };
-    };
-      scrolling = {
-          history = 1000;
-          multiplier = 3;
-    };
-    font = {
-        normal.family = "JetBrains Mono Nerd Font ";
-        bold.family = "JetBrains Mono Nerd Font";
-        italic.family = "'JetBrains Mono Nerd Font";
-        size = 13;
-    };
-    color = {
-        primary = {
-            background = "#1E1E2E";
-            foreground = "#CDD6F4";
-	    dim_foreground = "#CDD6F4";
-	    bright_foreground = "#CDD6F4";
-        };
-        normal = {
-          black = "#CDD6F4";
-          red = "#F38BA8";
-          green = "#A6E3A1";
-          yellow = "#F9E2AF";
-          blue = "#89B4FA";
-          magenta = "#F5C2E7";
-          cyan =  "#94E2D5";
-          white = "#BAC2DE";
-        };
-    };
-   };
-};
-  
-  programs.starship = {
-    enable = true;
-    # Configuration written to ~/.config/starship.toml
-    settings = {
-      # add_newline = false;
 
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-
-      # package.disabled = true;
-    };
-  };
-
-  # notification daemon
-  services.dunst = {
-    enable = true;
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-    settings = {
-      global = {
-        alignment = "center";
-        corner_radius = 20;
-        follow = "mouse";
-        font = "Roboto 10";
-        format = "<b>%s</b>\\n%b";
-        frame_width = 1;
-        offset = "5x5";
-        horizontal_padding = 8;
-        icon_position = "left";
-        indicate_hidden = "yes";
-        markup = "yes";
-        max_icon_size = 64;
-        mouse_left_click = "do_action";
-        mouse_middle_click = "close_all";
-        mouse_right_click = "close_current";
-        padding = 8;
-        plain_text = "no";
-        separator_color = "auto";
-        separator_height = 1;
-        show_indicators = false;
-        shrink = "no";
-        word_wrap = "yes";
-      };
-
-      fullscreen_delay_everything = {fullscreen = "delay";};
-
-      urgency_critical = {
-        background = "900000";
-        foreground =  "#ffffff";
-        frame_color = "#ff0000";
-      };
-      urgency_low = {
-        background = "222222";
-        foreground = "#888888";
-#     frame_color = default.xcolors.blue;
-      };
-      urgency_normal = {
-        background = "#1E1E2E";
-        foreground = "#ffffff";
-#     frame_color = default.xcolors.green;
-      };
-    };
-  };
- 
             				      
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
