@@ -36,7 +36,8 @@
 	pkgs.dunst 
 	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast      
 	pkgs.htop  
-	pkgs.keepassxc  
+	pkgs.keepassxc 
+	pkgs.git-credential-keepassxc 
 	pkgs.firefox-wayland 
 	pkgs.discord 
 ];
