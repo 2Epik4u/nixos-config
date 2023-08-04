@@ -9,6 +9,7 @@
       ./gtk.nix
       ./qt.nix
       ./starship.nix
+      ./eww.nix
   ]; 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -87,6 +88,10 @@
     DISABLE_QT5_COMPAT = "0";
     CALIBRE_USE_DARK_PALETTE = "1";
   };
+
+
+    
+
         				      
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
