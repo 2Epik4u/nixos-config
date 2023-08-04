@@ -25,8 +25,6 @@
 	pkgs.zsh 
 	pkgs.vim
 	pkgs.efibootmgr  
-	pkgs.gnome.gnome-keyring
-	pkgs.gnome-secrets
 	pkgs.git
 	# everything else
 	pkgs.mpv 
