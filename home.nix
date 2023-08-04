@@ -38,10 +38,6 @@
       qt6Packages.qtstyleplugin-kvantum
       libsForQt5.qtstyleplugin-kvantum
       libsForQt5.qt5ct
-      	
-
-
-
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -55,11 +51,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
-
-
-
-
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -96,11 +87,7 @@
     DISABLE_QT5_COMPAT = "0";
     CALIBRE_USE_DARK_PALETTE = "1";
   };
-
-
-
-
-            				      
+        				      
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
 }

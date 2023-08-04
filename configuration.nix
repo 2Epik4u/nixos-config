@@ -10,8 +10,6 @@
       ./hardware-configuration.nix
       # pipewire package
       inputs.nix-gaming.nixosModules.pipewireLowLatency 
-      
-
     ];
   nixpkgs.config.allowUnfree = true;
   
@@ -26,6 +24,10 @@
 	pkgs.mate.mate-polkit
 	pkgs.zsh 
 	pkgs.vim
+	pkgs.efibootmgr  
+	pkgs.gnome.gnome-keyring
+	pkgs.gnome-secrets
+	pkgs.git
 	# everything else
 	pkgs.mpv 
 	pkgs.swaybg  
@@ -33,10 +35,6 @@
 	pkgs.pavucontrol 
 	pkgs.gnome.gedit 
 	pkgs.starship 
-        pkgs.efibootmgr  
-	pkgs.git
-	pkgs.gnome.gnome-keyring
-	pkgs.gnome-secrets
 	pkgs.dunst 
 	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast      
 	pkgs.htop  
