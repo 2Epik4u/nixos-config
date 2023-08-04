@@ -11,28 +11,38 @@
       # pipewire package
       inputs.nix-gaming.nixosModules.pipewireLowLatency 
       
-      # home pkgs
-      ./alacritty.nix
-      ./dunst.nix
-      ./git.nix
-      ./gtk.nix
-      ./qt.nix
-      ./starship.nix
+
     ];
   nixpkgs.config.allowUnfree = true;
   
   environment.systemPackages = 
 [ 
 	# sorta essential
-	pkgs.alacritty  pkgs.gnome.file-roller
-	pkgs.cinnamon.nemo-with-extensions pkgs.cinnamon.nemo
-	pkgs.fuzzel pkgs.mate.mate-polkit pkgs.zsh pkgs.vim
+	pkgs.alacritty  
+	pkgs.gnome.file-roller
+	pkgs.cinnamon.nemo-with-extensions 
+	pkgs.cinnamon.nemo
+	pkgs.fuzzel 
+	pkgs.mate.mate-polkit
+	pkgs.zsh 
+	pkgs.vim
 	# everything else
-	pkgs.mpv pkgs.swaybg  pkgs.neofetch  
-	pkgs.pavucontrol pkgs.gnome.gedit pkgs.starship 
-        pkgs.efibootmgr  pkgs.git pkgs.gnome.gnome-keyring pkgs.dunst 
+	pkgs.mpv 
+	pkgs.swaybg  
+	pkgs.neofetch  
+	pkgs.pavucontrol 
+	pkgs.gnome.gedit 
+	pkgs.starship 
+        pkgs.efibootmgr  
+	pkgs.git
+	pkgs.gnome.gnome-keyring
+	pkgs.gnome-secrets
+	pkgs.dunst 
 	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast      
-	pkgs.htop pkgs.gnome.seahorse pkgs.keepassxc  pkgs.firefox-wayland pkgs.discord 
+	pkgs.htop  
+	pkgs.keepassxc  
+	pkgs.firefox-wayland 
+	pkgs.discord 
 ];
    nixpkgs.overlays =
   let
