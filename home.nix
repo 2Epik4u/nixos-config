@@ -25,7 +25,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     keepassxc  dolphin-emu qbittorrent krita inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge pkgs.obs-studio
-    libsForQt5.kwalletmanager wineWowPackages.waylandFull lutris steam imv protontricks # inputs.fufexan-dotfiles.packages."x86_64-linux".eww-hyprland
+    libsForQt5.kwalletmanager wineWowPackages.waylandFull lutris steam imv protontricks vscodium
       # credits: yavko
       # catppuccin theme for qt-apps
       qt5.qttools

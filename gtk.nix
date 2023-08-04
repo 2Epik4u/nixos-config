@@ -6,7 +6,7 @@
  
  # set theme 
   gtk = {
-    enable = true;
+   enable = true;
 
     font = {
       name = "Roboto";
