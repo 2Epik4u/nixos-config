@@ -1,5 +1,5 @@
-{inputs, pkgs, ...}: {
-  imports = [inputs.fufexan.homeManagerModules.eww-hyprland];
+{pkgs, inputs, ...}: {
+  imports = [inputs.fufexan-dotfiles.homeManagerModules.eww-hyprland];
 
   programs.eww-hyprland = {
     enable = true;

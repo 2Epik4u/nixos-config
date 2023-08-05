@@ -34,17 +34,16 @@
 	pkgs.gnome.gedit 
 	pkgs.starship 
 	pkgs.dunst 
-	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast      
+	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
 	pkgs.htop  
 	pkgs.keepassxc 
-	pkgs.git-credential-keepassxc 
 	pkgs.firefox-wayland 
 	pkgs.discord 
 ];
    nixpkgs.overlays =
   let
     myOverlay = self: super: {
-      discord = super.discord.override { withOpenASAR = true; withVencord = true; };
+      discord = super.discord.override { withVencord = true; };
     };
   in
   [ myOverlay ];
