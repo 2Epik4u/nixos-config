@@ -16,41 +16,41 @@
   environment.systemPackages = 
 [
  
-	# sorta essential
-	pkgs.alacritty  
-	pkgs.gnome.file-roller
-	pkgs.cinnamon.nemo-with-extensions 
-	pkgs.cinnamon.nemo
-	pkgs.fuzzel 
-	pkgs.mate.mate-polkit
-	pkgs.zsh 
-	pkgs.vim
-	pkgs.efibootmgr  
-	pkgs.git
-	# everything else
-	pkgs.mpv 
-	pkgs.swaybg  
-	pkgs.neofetch  
-	pkgs.pavucontrol 
-	pkgs.gnome.gedit 
-	pkgs.starship 
-	pkgs.dunst 
-	inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-	pkgs.htop  
-	pkgs.keepassxc 
-	pkgs.firefox-wayland 
-	pkgs.discord 
+    # sorta essential
+    pkgs.alacritty
+    pkgs.gnome.file-roller
+    pkgs.cinnamon.nemo-with-extensions
+    pkgs.cinnamon.nemo
+    pkgs.fuzzel
+    pkgs.mate.mate-polkit
+    pkgs.zsh
+    pkgs.vim
+    pkgs.efibootmgr
+    pkgs.git
+    # everything else
+    pkgs.mpv
+    pkgs.swaybg
+    pkgs.neofetch
+    pkgs.pavucontrol
+    pkgs.gnome.gedit
+    pkgs.starship
+    pkgs.dunst
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    pkgs.htop
+    pkgs.keepassxc
+    pkgs.firefox-wayland
+    pkgs.discord
+    pkgs.libsForQt5.kwallet
 ];
    nixpkgs.overlays =
   let
     myOverlay = self: super: {
       discord = super.discord.override { withVencord = true; };
-    };
+  };
   in
   [ myOverlay ];
    services.gvfs.enable = true; # Mount, trash, and other functionalities
-
- 
+       
    programs.zsh.autosuggestions.enable = true;
 
    programs.dconf.enable = true; 

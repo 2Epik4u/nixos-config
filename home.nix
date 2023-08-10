@@ -31,15 +31,24 @@
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    keepassxc  dolphin-emu qbittorrent krita inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge 
+    keepassxc  
+    dolphin-emu 
+    qbittorrent 
+    krita 
+    inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge 
     obs-studio 
-    libsForQt5.kwalletmanager wineWowPackages.wayland lutris steam imv protontricks
-      # credits: yavko
-      # catppuccin theme for qt-apps
-      qt5.qttools
-      qt6Packages.qtstyleplugin-kvantum
-      libsForQt5.qtstyleplugin-kvantum
-      libsForQt5.qt5ct
+    wineWowPackages.wayland 
+    lutris 
+    steam 
+    imv 
+    protontricks
+    libsForQt5.kate
+    # credits: yavko
+    # catppuccin theme for qt-apps
+    qt5.qttools
+    qt6Packages.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -90,10 +99,6 @@
     CALIBRE_USE_DARK_PALETTE = "1";
   };
 
-
-    
-
-        				      
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
 }

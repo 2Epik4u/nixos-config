@@ -1,7 +1,7 @@
 {pkgs, inputs, inputs', self', ...}: {
   imports = [
   inputs.fufexan-dotfiles.homeManagerModules.eww-hyprland
-  {_module.args = {inherit self' inputs';};} 
+  {_module.args = {inherit self' inputs';};}
   ];
 
   programs.eww-hyprland = {
