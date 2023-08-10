@@ -8,9 +8,9 @@
     nixosConfigurations = {
       hostname = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	specialArgs = {
-	inherit inputs;
-	};
+	      specialArgs = {
+	        inherit inputs;
+	      };
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
@@ -21,7 +21,7 @@
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
-	   home-manager.extraSpecialArgs = { inherit inputs; };
+	          home-manager.extraSpecialArgs = {inherit inputs;};
              
           }
         ];
@@ -30,6 +30,7 @@
   };
      perSystem = { config, ... }: {
 	# dont know what this means
+	
 	
  };
 };

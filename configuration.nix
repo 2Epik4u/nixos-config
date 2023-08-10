@@ -14,7 +14,8 @@
   nixpkgs.config.allowUnfree = true;
   
   environment.systemPackages = 
-[ 
+[
+ 
 	# sorta essential
 	pkgs.alacritty  
 	pkgs.gnome.file-roller

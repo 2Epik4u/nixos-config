@@ -1,5 +1,8 @@
-{pkgs, inputs, ...}: {
-  imports = [inputs.fufexan-dotfiles.homeManagerModules.eww-hyprland];
+{pkgs, inputs, inputs', self', ...}: {
+  imports = [
+  inputs.fufexan-dotfiles.homeManagerModules.eww-hyprland
+  {_module.args = {inherit self' inputs';};} 
+  ];
 
   programs.eww-hyprland = {
     enable = true;
@@ -14,3 +17,4 @@
     autoReload = false; 
   };
 }
+
