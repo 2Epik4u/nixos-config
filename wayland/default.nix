@@ -9,6 +9,6 @@
 home.packages = with pkgs; [
     fuzzel
     wineWowPackages.wayland
-    swagbg
+    swaybg
 ];
 }
