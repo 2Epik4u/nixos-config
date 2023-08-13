@@ -21,7 +21,6 @@
     pkgs.gnome.file-roller
     pkgs.cinnamon.nemo-with-extensions
     pkgs.cinnamon.nemo
-    pkgs.fuzzel
     pkgs.mate.mate-polkit
     pkgs.zsh
     pkgs.vim
@@ -35,7 +34,6 @@
     pkgs.gnome.gedit
     pkgs.starship
     pkgs.dunst
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     pkgs.htop
     pkgs.keepassxc
     pkgs.firefox-wayland
@@ -55,13 +53,12 @@
 
    programs.dconf.enable = true; 
    services.flatpak.enable = true;
-   fonts.fontDir.enable = true;
+#   fonts.fontDir.enable = true;
    programs.zsh.enable = true;
    # Bluetooth
    hardware.bluetooth.enable = true;
    services.blueman.enable = true;
 
-   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   # Nix settings
    nix.settings.auto-optimise-store = true;
    nix = {
@@ -80,8 +77,14 @@
  
 
   nix.settings = {
-    substituters = ["https://nix-gaming.cachix.org"];
-    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+    substituters = [
+    "https://nix-gaming.cachix.org"
+    "https://hyprland.cachix.org"
+    ];
+    trusted-public-keys = [
+    "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
   };
   # Use the systemd EFI boot loader.
 
@@ -173,16 +176,6 @@
   # Set shell as well
   users.users.justin.shell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
-
-  # Hyprland 
-
-  programs.hyprland.enable = true;
-  
-  
-
-
-
-
  
   # variables
   environment.sessionVariables = {
@@ -201,6 +194,10 @@
     options = "--delete-older-than 1d";
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

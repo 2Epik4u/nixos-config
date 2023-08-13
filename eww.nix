@@ -1,8 +1,5 @@
-{pkgs, inputs, inputs', self', ...}: {
-  imports = [
-  inputs.fufexan-dotfiles.homeManagerModules.eww-hyprland
-  {_module.args = {inherit self' inputs';};}
-  ];
+{inputs, pkgs, ...}: {
+  imports = [inputs.fufexan-dotfiles.homeManagerModules.eww-hyprland];
 
   programs.eww-hyprland = {
     enable = true;
@@ -14,7 +11,6 @@
 #    colors = builtins.readFile ./latte.scss;
 
     # set to true to reload on change
-    autoReload = false; 
+    autoReload = false;
   };
 }
-
