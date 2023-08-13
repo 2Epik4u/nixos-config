@@ -4,7 +4,6 @@
     ...
 }: let
    pointer = config.home.pointerCursor;
-   imports = [hyprland.homeManagerModules.default];
 in {
   wayland.windowManager.hyprland.extraConfig = ''
     monitor=,1920x1080@144,0x0,1
