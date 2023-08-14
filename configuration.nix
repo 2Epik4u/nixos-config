@@ -13,32 +13,31 @@
     ];
   nixpkgs.config.allowUnfree = true;
   
-  environment.systemPackages = 
+  environment.systemPackages = with pkgs;
 [
  
     # sorta essential
-    pkgs.alacritty
-    pkgs.gnome.file-roller
-    pkgs.cinnamon.nemo-with-extensions
-    pkgs.cinnamon.nemo
-    pkgs.mate.mate-polkit
-    pkgs.zsh
-    pkgs.vim
-    pkgs.efibootmgr
-    pkgs.git
+    alacritty
+    gnome.file-roller
+    cinnamon.nemo-with-extensions
+    cinnamon.nemo
+    mate.mate-polkit
+    zsh
+    vim
+    efibootmgr
+    git
     # everything else
-    pkgs.mpv
-    pkgs.swaybg
-    pkgs.neofetch
-    pkgs.pavucontrol
-    pkgs.gnome.gedit
-    pkgs.starship
-    pkgs.dunst
-    pkgs.htop
-    pkgs.keepassxc
-    pkgs.firefox-wayland
-    pkgs.discord
-    pkgs.libsForQt5.kwallet
+    xfce.xfce4-taskmanager
+    mpv
+    neofetch
+    pavucontrol
+    gnome.gedit
+    starship
+    dunst
+    keepassxc
+    firefox-wayland
+    discord
+    libsForQt5.kwallet
 ];
    nixpkgs.overlays =
   let
@@ -53,7 +52,7 @@
 
    programs.dconf.enable = true; 
    services.flatpak.enable = true;
-#   fonts.fontDir.enable = true;
+   fonts.fontDir.enable = true;
    programs.zsh.enable = true;
    # Bluetooth
    hardware.bluetooth.enable = true;
