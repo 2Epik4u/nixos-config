@@ -99,17 +99,16 @@ in {
     }
 
     decoration {
-        rounding=8
-        blur=1
-        blur_size=3 # minimum 1
-        blur_passes=1 # minimum 1, more passes = more resource intensive.
-        # Your blur "amount" is blur_size * blur_passes, but high blur_size (over around 5-ish) will produce artifacts.
-        # if you want heavy blur, you need to up the blur_passes.
-        # the more passes, the more you can up the blur_size without noticing artifacts.
+      rounding=8
+      blur {
+        enabled = true
+        size = 3
+        passes = 1
+        new_optimizations = true
+      }
         drop_shadow=true
-        shadow_range=4
+        shadow_range=50
     }
-
 
     animations {
         enabled = true
