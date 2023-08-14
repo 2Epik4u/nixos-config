@@ -26,8 +26,9 @@
     vim
     efibootmgr
     git
+    gnome.gnome-keyring
     # everything else
-    xfce.xfce4-taskmanager
+    mate.mate-system-monitor
     mpv
     neofetch
     pavucontrol
@@ -37,7 +38,7 @@
     keepassxc
     firefox-wayland
     discord
-    libsForQt5.kwallet
+    partition-manager
 ];
    nixpkgs.overlays =
   let
@@ -49,7 +50,7 @@
    services.gvfs.enable = true; # Mount, trash, and other functionalities
        
    programs.zsh.autosuggestions.enable = true;
-
+   programs.partition-manager.enable = true;
    programs.dconf.enable = true; 
    services.flatpak.enable = true;
    fonts.fontDir.enable = true;

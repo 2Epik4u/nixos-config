@@ -1,8 +1,9 @@
 {
     pkgs,
+    inputs,
     ...
 }: {
-  imports = [./hyprland];
+  imports = [./hyprland ./fuzzel.nix];
 
 
 home.packages = with pkgs; [
