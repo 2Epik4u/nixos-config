@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
       # pipewire package
       inputs.nix-gaming.nixosModules.pipewireLowLatency 
-      ./xdg.nix
     ];
   nixpkgs.config.allowUnfree = true;
   
