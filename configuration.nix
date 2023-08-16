@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       # pipewire package
       inputs.nix-gaming.nixosModules.pipewireLowLatency 
+      ./xdg.nix
     ];
   nixpkgs.config.allowUnfree = true;
   
@@ -54,6 +55,11 @@
    programs.dconf.enable = true; 
    services.flatpak.enable = true;
    fonts.fontDir.enable = true;
+   fonts.fonts = with pkgs; [
+    twemoji-color-font
+    material-symbols-unstable
+  ];
+
    programs.zsh.enable = true;
    # Bluetooth
    hardware.bluetooth.enable = true;
