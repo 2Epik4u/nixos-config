@@ -3,7 +3,7 @@
   config,
   ...
 }: {   
- 
+ # https://github.com/fufexan/dotfiles/blob/main/home/programs/gtk.nix
  # set theme 
   gtk = {
    enable = true;

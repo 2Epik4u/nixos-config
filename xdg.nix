@@ -1,4 +1,5 @@
 {config, ...}: let
+# https://github.com/fufexan/dotfiles/blob/main/home/programs/xdg.nix
   browser = ["firefox.desktop"];
 
   # XDG MIME types

@@ -56,7 +56,8 @@
    fonts.fontDir.enable = true;
    fonts.fonts = with pkgs; [
     twemoji-color-font
-    material-symbols-unstable
+    material-symbols
+    lexend
   ];
 
    programs.zsh.enable = true;
