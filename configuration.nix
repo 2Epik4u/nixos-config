@@ -28,7 +28,7 @@
     git
     gnome.gnome-keyring
     # everything else
-    mate.mate-system-monitor
+    lxqt.qps
     mpv
     neofetch
     pavucontrol
@@ -54,7 +54,7 @@
    programs.dconf.enable = true; 
    services.flatpak.enable = true;
    fonts.fontDir.enable = true;
-   fonts.fonts = with pkgs; [
+   fonts.packages = with pkgs; [
     twemoji-color-font
     material-symbols
     lexend
