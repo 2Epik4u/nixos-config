@@ -57,7 +57,6 @@ in {
     # from https://github.com/fufexan/dotfiles/blob/5f00d66445c353f94dad1460c8f2a61ff7aac56d/home/wayland/hyprland/config.nix#L18
     exec-once = hyprctl setcursor ${pointer.name} ${toString pointer.size}
     exec-once = eww open bar
-    exec-once = keepassxc # this is for secret service
     exec-once = swaybg -o '*' -i ${config.home.homeDirectory}/wall/leaves.png -m fill
     exec-once = ${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1
 
