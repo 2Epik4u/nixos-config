@@ -13,11 +13,11 @@
     settings = {
       global = {
         alignment = "center";
-        corner_radius = 20;
+        corner_radius = 15;
         follow = "mouse";
         font = "Roboto 10";
         format = "<b>%s</b>\\n%b";
-        frame_width = 1;
+        frame_width = 2;
         offset = "5x5";
         horizontal_padding = 8;
         icon_position = "left";
@@ -41,17 +41,17 @@
       urgency_critical = {
         background = "900000";
         foreground =  "#ffffff";
-        frame_color = "#ff0000";
+        frame_color = "#f38ba8";
       };
       urgency_low = {
         background = "222222";
         foreground = "#888888";
-#     frame_color = default.xcolors.blue;
+        frame_color = "#89b4fa";
       };
       urgency_normal = {
         background = "#1E1E2E";
         foreground = "#ffffff";
-#     frame_color = default.xcolors.green;
+        frame_color = "#9399B2";
       };
     };
   };

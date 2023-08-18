@@ -37,13 +37,17 @@
     dolphin-emu 
     qbittorrent 
     krita 
-    inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge 
     obs-studio 
+
+    # games / game related
     wineWowPackages.wayland 
     lutris 
     steam 
     imv 
     protontricks
+    inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
+    inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
+    samba
     libsForQt5.kate
     # credits: yavko
     # catppuccin theme for qt-apps

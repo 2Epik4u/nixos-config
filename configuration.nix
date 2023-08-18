@@ -27,6 +27,8 @@
     efibootmgr
     git
     gnome.gnome-keyring
+    unzip
+    wget
     # everything else
     lxqt.qps
     mpv
@@ -54,6 +56,7 @@
    programs.dconf.enable = true; 
    services.flatpak.enable = true;
    fonts.fontDir.enable = true;
+   programs.hyprland.enable = true;
    fonts.packages = with pkgs; [
     twemoji-color-font
     material-symbols

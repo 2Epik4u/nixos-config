@@ -39,7 +39,7 @@
       url = "github:hyprwm/Hyprland";
     };
     linuxmobile = {
-      url = "github:linuxmobile/kaku";
+      url = "github:2Epik4u/kaku";
     };
     home-manager =  {
       url = "github:nix-community/home-manager";
