@@ -18,15 +18,15 @@ in {
 
     # from https://github.com/fufexan/dotfiles/blob/5f00d66445c353f94dad1460c8f2a61ff7aac56d/home/wayland/hyprland/config.nix#L225
     # note, if screenshots folder doesn't exist it will not save
-    $screenshotarea = hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify --cursor copysave area ${config.home.homeDirectory}/Pictures/screenshots/$(date +%F_%I:%M ).png; hyprctl keyword animation "fadeOut,1,4,default"
+    $screenshotarea = hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify --cursor copysave area ${config.xdg.userDirs.pictures}/screenshots/$(date +%F_%I:%M ).png; hyprctl keyword animation "fadeOut,1,4,default"
     bind = $modshift,S,exec,$screenshotarea
-    bind = $mod,C,exec,grimblast --notify --cursor copysave active ${config.home.homeDirectory}/Pictures/screenshots/$(date +%F_%I:%M ).png
+    bind = $mod,C,exec,grimblast --notify --cursor copysave active ${config.xdg.userDirs.pictures}/screenshots/$(date +%F_%I:%M ).png
 
     bindm = $mod,mouse:272,movewindow
     bindm = $mod,mouse:273,resizewindow
     bind = $mod,F,fullscreen,0
     bind = $mod,RETURN,exec,alacritty
-    bind = $mod,TAB,exec,nemo
+    bind = $mod,TAB,exec,nautilus
     bind = $mod,P,pseudo,
     bind = $mod,V,togglefloating,
     bind = $mod,SPACE,exec,fuzzel
@@ -49,7 +49,6 @@ in {
         ''
       )
       10)}
-
 
 
     # executables
