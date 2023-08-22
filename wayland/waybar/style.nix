@@ -1,7 +1,7 @@
 {
 programs.waybar.style = ''
 * {
-  font-family: "Lexend", Roboto, sans-serif;
+  font-family:"Lexend", Roboto,  Material Symbols Outlined, sans-serif;
   font-size: .9rem;
   text-shadow: 0 2px 3px rgba(0, 0, 0, .2);
   transition: 200ms ease;
