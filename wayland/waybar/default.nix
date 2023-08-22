@@ -10,5 +10,6 @@
     programs.waybar = {
         enable = true;
         package = pkgs.waybar-hyprland;
+        systemd.enable = true;
     };
 }

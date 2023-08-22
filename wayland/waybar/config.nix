@@ -24,17 +24,17 @@
         "network"
         "cpu"
         "memory"
-        "custom/power"
         "clock"
+        "custom/power"
     ];
 
     # module settings
     pulseaudio = let
         pavucontrol = "${pkgs.pavucontrol}" + "/bin/pavucontrol";
     in {
-        format = "{volume}% {icon}";
-        format-bluetooth = "{volume}% {icon}";
-        format-muted = "";
+        format = "{icon} {volume}%";
+        format-bluetooth = "{icon} {volume}%";
+        format-muted = "";
         format-icons = {
             headphone = "";
             hands-free = "";
@@ -51,16 +51,17 @@
         on-click = "${pavucontrol}";
     };
     network = {
-        format-wifi = "({signalStrength}%)";
+        format-wifi = "";
+        tooltip-format-wifi = "{essid} {signalStrength}%";
         format-ethernet = "";
         format-disconnected = "";
     };
     cpu = {
-        format = "{usage}% ";
+        format = " {usage}%";
     };
     memory = {
         interval = 30;
-        format = "{}% ";
+        format = " {}%";
     };
     "custom/power" = let
         wlogout = "${pkgs.wlogout}" + "/bin/wlogout";
@@ -69,7 +70,7 @@
         on-click = "${wlogout}";
     };
     clock = {
-        format = "{: %I:%M %p}";
+        format = "{:%I:%M %p}";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
     };
     "wlr/workspaces" = let
