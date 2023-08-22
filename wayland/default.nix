@@ -3,7 +3,7 @@
     inputs,
     ...
 }: {
-  imports = [./hyprland ./fuzzel.nix ./swayidle.nix ];
+  imports = [./hyprland ./waybar ./fuzzel.nix ./swayidle.nix ];
 
 
 home.packages = with pkgs; [

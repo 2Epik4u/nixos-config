@@ -9,7 +9,6 @@
       ./gtk.nix
       ./qt.nix
       ./starship.nix
-      ./eww.nix
       ./wayland
       ./xdg.nix
   ]; 
@@ -40,13 +39,13 @@
     obs-studio 
 
     # games / game related
-    wineWowPackages.wayland 
     lutris 
     steam 
     imv 
     protontricks
     inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
     inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
+    waybar-hyprland
     samba
     libsForQt5.kate
     # credits: yavko

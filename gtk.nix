@@ -2,7 +2,7 @@
   pkgs,
   config,
   ...
-}: {   
+}: {
  # https://github.com/fufexan/dotfiles/blob/main/home/programs/gtk.nix
  # set theme 
   gtk = {
@@ -20,16 +20,21 @@
       package = pkgs.papirus-icon-theme;
     };
 
+    gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+
+    gtk4.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+
     theme = {
-      name = "Catppuccin-Mocha-Compact-Mauve-dark";
+      name = "Catppuccin-Mocha-Compact-Blue-dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = ["mauve"];
+        accents = ["blue"];
         size = "compact";
         variant = "mocha";
+        tweaks = [ "rimless" "black" ];
       };
     };
   };
-  
+
  # set cursor
    home.pointerCursor = {
     package = pkgs.bibata-cursors;

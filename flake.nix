@@ -46,15 +46,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-gaming = {
-    url = "github:fufexan/nix-gaming";
-    };
-    fufexan-dotfiles = {
-      url = "github:fufexan/dotfiles";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    gross = {
-      url = "github:fufexan/gross";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:fufexan/nix-gaming";
     };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";

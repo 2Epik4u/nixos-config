@@ -55,9 +55,9 @@ in {
 
     # from https://github.com/fufexan/dotfiles/blob/5f00d66445c353f94dad1460c8f2a61ff7aac56d/home/wayland/hyprland/config.nix#L18
     exec-once = hyprctl setcursor ${pointer.name} ${toString pointer.size}
-    exec-once = eww open bar
     exec-once = swaybg -o '*' -i ${config.home.homeDirectory}/wall/leaves.png -m fill
     exec-once = ${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1
+    exec-once = waybar
 
     # windowrules
     windowrulev2 = opacity 0.9 0.9,class:^(foot)$
@@ -127,6 +127,7 @@ in {
         enable_swallow = true
         swallow_regex  = ^(alacritty)$
         vrr=1
+        disable_hyprland_logo = true
     }
 
     # disable touchpad as mouse for playstation 4/5 controllers
