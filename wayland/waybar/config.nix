@@ -63,11 +63,9 @@
         interval = 30;
         format = " {}%";
     };
-    "custom/power" = let
-        wlogout = "${pkgs.wlogout}" + "/bin/wlogout";
-    in {
+    "custom/power" =  {
         format = "";
-        on-click = "${wlogout}";
+        on-click = "${pkgs.procps}/bin/pkill Hyprland";
     };
     clock = {
         format = "{:%I:%M %p}";

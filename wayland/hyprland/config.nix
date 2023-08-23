@@ -57,7 +57,6 @@ in {
     exec-once = hyprctl setcursor ${pointer.name} ${toString pointer.size}
     exec-once = swaybg -o '*' -i ${config.home.homeDirectory}/wall/leaves.png -m fill
     exec-once = ${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1
-    exec-once = waybar
 
     # windowrules
     windowrulev2 = opacity 0.9 0.9,class:^(foot)$
