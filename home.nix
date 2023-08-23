@@ -43,10 +43,9 @@
     steam 
     imv 
     protontricks
-    inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
     inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
     waybar-hyprland
-    samba
+    samba # roblox on wine wont work cause of this?
     libsForQt5.kate
     # credits: yavko
     # catppuccin theme for qt-apps

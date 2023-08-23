@@ -70,6 +70,7 @@
     clock = {
         format = "{:%I:%M %p}";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        format-alt = "{:%I:%M %p %m/%d/%Y}";
     };
     "wlr/workspaces" = let
         hyprctl = config.wayland.windowManager.hyprland.package + "/bin/hyprctl";

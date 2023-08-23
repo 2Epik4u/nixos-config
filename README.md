@@ -1,10 +1,9 @@
 # nixos-config
 nixos config for (upcoming laptop) and pc setup
 # Todo
-* fix theme issues
-* add laptop config when i make it
+* fix theme issues (libadwaita isnt themed correctly and some qt5/qt6 apps dont theme )
 
-# inspiration/stolen stuff
+# inspiration
 * https://github.com/fufexan/dotfiles
 * https://gitlab.com/Oglo12/nixos-config/
 * https://github.com/NotAShelf/nyx

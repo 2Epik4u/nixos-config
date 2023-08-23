@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+
       # pipewire package
       inputs.nix-gaming.nixosModules.pipewireLowLatency 
     ];
@@ -101,18 +101,13 @@
    boot.loader.grub.useOSProber = true;
    boot.loader.efi.canTouchEfiVariables = true;  
    boot.loader.efi.efiSysMountPoint = "/boot";
-   boot.supportedFilesystems = [ "ntfs" ];
-   boot.initrd.kernelModules = [ "amdgpu" ]; 
-
   # vulkan
   hardware.opengl.driSupport = true;
   # For 32 bit applications
   hardware.opengl.driSupport32Bit = true;
   # also opengl
   hardware.opengl.enable = true; 
- 
-   networking.hostName = "justin-nixos"; # Define your hostname.
-  # Pick only one of the below networking options.
+   # Pick only one of the below networking options.
    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
    programs.nm-applet.enable = true;
@@ -135,9 +130,6 @@
   # Enable the X11 windowing system.
    services.xserver.enable = true;
    services.xserver.displayManager.sddm.enable = true;
-   services.xserver.videoDrivers = [ "amdgpu" ];
-
-  
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
