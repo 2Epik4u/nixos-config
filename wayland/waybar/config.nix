@@ -20,6 +20,7 @@
     ];
 
     modules-right = [
+        "battery"
         "pulseaudio"
         "network"
         "cpu"
@@ -49,6 +50,22 @@
         };
         scroll-setup = 1;
         on-click = "${pavucontrol}";
+    };
+    battery = {
+        interval = 60;
+        states = {
+            warning = 30;
+            critical = 15;
+        };
+        format = "{icon} {capacity}%";
+        format-icons =
+        [""
+        ""
+        ""
+        ""
+        ""];
+        max-length = 25;
+
     };
     network = {
         format-wifi = "";

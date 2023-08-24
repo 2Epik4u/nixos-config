@@ -53,6 +53,7 @@
    programs.zsh.autosuggestions.enable = true;
    programs.partition-manager.enable = true;
    programs.dconf.enable = true; 
+
    services.flatpak.enable = true;
    fonts.fontDir.enable = true;
    programs.hyprland.enable = true;
@@ -96,9 +97,10 @@
   };
   # Use the systemd EFI boot loader.
 
-   boot.loader.grub.device = "nodev";
-   boot.loader.grub.efiSupport = true;
-   boot.loader.grub.useOSProber = true;
+
+
+   boot.loader.systemd-boot.enable = true;
+
    boot.loader.efi.canTouchEfiVariables = true;  
    boot.loader.efi.efiSysMountPoint = "/boot";
   # vulkan
