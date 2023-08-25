@@ -20,7 +20,6 @@
     ];
 
     modules-right = [
-        "battery"
         "pulseaudio"
         "network"
         "cpu"

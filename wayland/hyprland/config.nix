@@ -6,7 +6,6 @@
    pointer = config.home.pointerCursor;
 in {
   wayland.windowManager.hyprland.extraConfig = ''
-    monitor=,highres,auto,2
     $mod = SUPER
     $modshift = SUPERSHIFT
     $modalt = ALT
@@ -34,24 +33,6 @@ in {
     bind=$mod,w,movefocus,u
     bind=$mod,s,movefocus,d
 
-    # media controls
-    bindl = , XF86AudioPlay, exec, playerctl play-pause
-    bindl = , XF86AudioPrev, exec, playerctl previous
-    bindl = , XF86AudioNext, exec, playerctl next
-
-    # volume
-    bindle = , XF86AudioRaiseVolume, exec, wpctl set-volume -l "1.0" @DEFAULT_AUDIO_SINK@ 6%+
-    bindle = , XF86AudioLowerVolume, exec, wpctl set-volume -l "1.0" @DEFAULT_AUDIO_SINK@ 6%-
-    bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-    bindl = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-
-    # backlight
-    bindle = , XF86MonBrightnessUp, exec, brillo -q -u 300000 -A 5
-    bindle = , XF86MonBrightnessDown, exec, brillo -q -u 300000 -U 5
-    gestures {
-      workspace_swipe = true
-      workspace_swipe_forever = true
-    }
     xwayland {
       force_zero_scaling = true
     }

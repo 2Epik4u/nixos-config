@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./../../configuration.nix
     ];
+
   networking.hostName = "justin-nixos";
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];

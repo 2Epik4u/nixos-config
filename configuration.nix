@@ -39,7 +39,7 @@
     keepassxc
     discord
     partition-manager
-    ungoogled-chromium
+    firefox
 ];
   nixpkgs.overlays =
   let
@@ -97,12 +97,12 @@
   };
   # Use the systemd EFI boot loader.
 
-
-
-   boot.loader.systemd-boot.enable = true;
-
-   boot.loader.efi.canTouchEfiVariables = true;  
+   boot.loader.grub.device = "nodev";
+   boot.loader.grub.efiSupport = true;
+   boot.loader.grub.useOSProber = true;
+   boot.loader.efi.canTouchEfiVariables = true;
    boot.loader.efi.efiSysMountPoint = "/boot";
+
   # vulkan
   hardware.opengl.driSupport = true;
   # For 32 bit applications
