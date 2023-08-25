@@ -24,6 +24,12 @@ programs.chromium = {
         "--ozone-platform=wayland"
         "--enable-features=UseOzonePlatform"
 
+        # Performance
+        "--enable-gpu-rasterization"
+        "--enable-oop-rasterization"
+        "--enable-zero-copy"
+        "--ignore-gpu-blocklist"
+
     ];
  };
 };

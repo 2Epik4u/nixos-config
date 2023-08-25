@@ -39,7 +39,6 @@
     keepassxc
     discord
     partition-manager
-    firefox
 ];
   nixpkgs.overlays =
   let
