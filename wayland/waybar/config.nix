@@ -59,11 +59,11 @@
         };
         format = "{icon} {capacity}%";
         format-icons =
-        [""
-        ""
-        ""
-        ""
-        ""];
+        [" "
+        " "
+        " "
+        " "
+        " "];
         max-length = 25;
 
     };

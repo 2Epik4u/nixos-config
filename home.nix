@@ -45,7 +45,6 @@
     protontricks
     inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
     waybar-hyprland
-    samba # roblox on wine wont work cause of this?
     libsForQt5.kate
     # credits: yavko
     # catppuccin theme for qt-apps

@@ -1,6 +1,6 @@
 {config, ...}: let
 # https://github.com/fufexan/dotfiles/blob/main/home/programs/xdg.nix
-  browser = ["firefox.desktop"];
+  browser = ["chromium-browser.desktop"];
   texteditor = ["org.gnome.gedit.desktop"];
   code = ["org.kde.kate.desktop"];
   # XDG MIME types
@@ -27,6 +27,7 @@
     "image/webp" = ["imv.desktop"]; # why
     "application/json" = browser;
     "application/pdf" = browser;
+    "application/x-kdbx" = ["org.keepassxc.KeePassXC.desktop"];
   };
 in {
   xdg = {

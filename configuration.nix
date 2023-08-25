@@ -37,11 +37,11 @@
     starship
     dunst
     keepassxc
-    firefox-wayland
     discord
     partition-manager
+    ungoogled-chromium
 ];
-   nixpkgs.overlays =
+  nixpkgs.overlays =
   let
     myOverlay = self: super: {
       discord = super.discord.override { withVencord = true; };
