@@ -6,7 +6,7 @@
     imports = [./config.nix ./style.nix];
     programs.waybar = {
         enable = true;
-        package = pkgs.waybar-hyprland;
+        package = pkgs.waybar;
         systemd.enable = true;
     };
 }

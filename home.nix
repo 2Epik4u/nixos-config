@@ -41,11 +41,9 @@
 
     # games / game related
     lutris 
-    steam 
     imv 
     protontricks
     inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
-    waybar-hyprland
     libsForQt5.kate
     # credits: yavko
     # catppuccin theme for qt-apps
@@ -53,6 +51,7 @@
     qt6Packages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
+
     font-manager
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -95,14 +94,6 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "vim";
-    BROWSER = "firefox";
-    NIXPKGS_ALLOW_UNFREE = "1";
-    QT_STYLE_OVERRIDE = "kvantum";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    DISABLE_QT5_COMPAT = "0";
-    CALIBRE_USE_DARK_PALETTE = "1";
   };
 
   # Let Home Manager install and manage itself.

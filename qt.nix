@@ -1,10 +1,10 @@
  # https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/themes/qt.nix
-    
+
  {
   pkgs,
   config,
   ...
-}: {       
+}: {
     xdg.configFile."kdeglobals".source = "${(pkgs.catppuccin-kde.override {
       flavour = ["mocha"];
       accents = ["blue"];
