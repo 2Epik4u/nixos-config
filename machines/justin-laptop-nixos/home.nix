@@ -57,12 +57,6 @@
           modules-right = [
           # add battery module
         "battery"
-        "pulseaudio"
-        "network"
-        "cpu"
-        "memory"
-        "clock"
-        "custom/power"
         ];
   };
 };
