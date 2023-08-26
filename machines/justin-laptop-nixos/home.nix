@@ -52,8 +52,8 @@
       workspace_swipe_forever = true
     }
     '';
-    programs.waybar.settings {
-      mainBar {
+    programs.waybar.settings = {
+      mainBar = {
           modules-right = [
           # add battery module
         "battery"
