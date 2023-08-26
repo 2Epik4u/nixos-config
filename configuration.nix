@@ -169,7 +169,7 @@
    users.users.justin = {
      isNormalUser = true;
      home = "/home/justin";
-     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager" "video" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
 
      ];
@@ -192,7 +192,7 @@
    nix.gc = {
     automatic = true;
     dates = "daily";
-    options = "--delete-older-than 1d";
+    options = "--delete-older-than 5h";
   };
 
   xdg.portal = {

@@ -57,12 +57,13 @@
             critical = 15;
         };
         format = "{icon} {capacity}%";
+        format-charging = " {capacity}%";
         format-icons =
-        [" "
-        " "
-        " "
-        " "
-        " "];
+        [""
+        " "
+        ""
+        ""
+        ""];
         max-length = 25;
 
     };
@@ -81,7 +82,7 @@
     };
     "custom/power" =  {
         format = "";
-        on-click = "${pkgs.procps}/bin/pkill Hyprland";
+        on-click = "${pkgs.wlogout}/bin/wlogout Hyprland";
     };
     clock = {
         format = "{:%I:%M %p}";
