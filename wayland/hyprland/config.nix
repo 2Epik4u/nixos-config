@@ -54,7 +54,6 @@ in {
 
 
     # executables
-
     # from https://github.com/fufexan/dotfiles/blob/5f00d66445c353f94dad1460c8f2a61ff7aac56d/home/wayland/hyprland/config.nix#L18
     exec-once = hyprctl setcursor ${pointer.name} ${toString pointer.size}
     exec-once = swaybg -o '*' -i ${config.home.homeDirectory}/wall/leaves.png -m fill
@@ -92,8 +91,9 @@ in {
         gaps_in=4
         gaps_out=20
         border_size=3
-        col.active_border=0xFF9399B2
-        col.inactive_border = rgba(595959aa)
+        col.active_border = rgb(89b4fa) rgb(cba6f7) 270deg
+        col.group_border_active = rgba(88888888)
+        col.group_border = rgba(00000088)
 
         apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
     }

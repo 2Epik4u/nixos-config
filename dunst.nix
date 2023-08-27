@@ -51,7 +51,7 @@
       urgency_normal = {
         background = "#1E1E2E";
         foreground = "#ffffff";
-        frame_color = "#9399B2";
+        frame_color = "#b4befe";
       };
     };
   };

@@ -1,33 +1,41 @@
 {
 
     xdg.configFile."fuzzel/fuzzel.ini".text = ''
-font=monospace
+# output=<not set>
+font=Lexend
+dpi-aware=auto
 prompt=>
 icon-theme=Papirus-Dark
 icons-enabled=yes
-fields=filename,name,generic
+# fields=filename,name,generic
+# password-character=*
+# filter-desktop=no
 fuzzy=yes
-show-actions=yes
+# show-actions=no
 terminal=$TERMINAL -e  # Note: you cannot actually use environment variables here
+# launch-prefix=<not set>
 
-lines=10
-width=50
-horizontal-pad=50
-vertical-pad=0
-inner-pad=5
+# lines=15
+# width=30
+# tabs=8
+# horizontal-pad=40
+# vertical-pad=8
+# inner-pad=0
 
-image-size-ratio=0.5
+# image-size-ratio=0.5
 
+# line-height=<use font metrics>
+# letter-spacing=0
 
-layer = top
-exit-on-keyboard-focus-loss = yes
+# layer = top
+# exit-on-keyboard-focus-loss = yes
 
 [colors]
-background=1e1e2ed7
+background=181825bd
 text=cdd6f486
 match=cb4b16ff
-selection=585B70dd
-selection-text=b4befedd
+selection=b4befedd
+selection-text=181825ff
 border=b4befedd
 
 [border]
@@ -35,30 +43,30 @@ width=3
 radius=10
 
 [dmenu]
-mode=text  # text|index
-exit-immediately-if-empty=no
+# mode=text  # text|index
+# exit-immediately-if-empty=no
 
 [key-bindings]
 # cancel=Escape Control+g
 # execute=Return KP_Enter Control+y
-#  execute-or-next=Tab
-#  cursor-left=Left Control+b
-#  cursor-left-word=Control+Left Mod1+b
-#  cursor-right=Right Control+f
-#  cursor-right-word=Control+Right Mod1+f
-#  cursor-home=Home Control+a
-#  cursor-end=End Control+e
-#  delete-prev=BackSpace
-#  delete-prev-word=Mod1+BackSpace Control+BackSpace
-#  delete-next=Delete
-#  delete-next-word=Mod1+d Control+Delete
-#  delete-line=Control+k
-#  prev=Up Control+p
+# execute-or-next=Tab
+# cursor-left=Left Control+b
+# cursor-left-word=Control+Left Mod1+b
+# cursor-right=Right Control+f
+# cursor-right-word=Control+Right Mod1+f
+# cursor-home=Home Control+a
+# cursor-end=End Control+e
+# delete-prev=BackSpace
+# delete-prev-word=Mod1+BackSpace Control+BackSpace
+# delete-next=Delete KP_Delete Control+d
+# delete-next-word=Mod1+d Control+Delete Control+KP_Delete
+# delete-line=Control+k
+# prev=Up Control+p
 # prev-with-wrap=ISO_Left_Tab
-#  prev-page=PageUp KP_PageUp
-#  next=Down Control+n
-#  next-with-wrap=none
-#  next-page=Page_Down KP_Page_Down
+# prev-page=Page_Up KP_Page_Up
+# next=Down Control+n
+# next-with-wrap=none
+# next-page=Page_Down KP_Page_Down
 
 # custom-N: *dmenu mode only*. Like execute, but with a non-zero
 # exit-code; custom-1 exits with code 10, custom-2 with 11, custom-3

@@ -24,7 +24,6 @@
     "audio/*" = ["mpv.desktop"];
     "video/*" = ["mpv.dekstop"];
     "image/*" = ["imv.desktop"];
-    "image/webp" = ["imv.desktop"]; # why
     "application/json" = browser;
     "application/pdf" = browser;
     "application/x-kdbx" = ["org.keepassxc.KeePassXC.desktop"];

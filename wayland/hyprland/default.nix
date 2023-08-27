@@ -6,6 +6,7 @@
   imports = [./config.nix];
   home.packages = with pkgs; [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    hyprpicker
 ];
 
   systemd.user.services.swayidle.Install.WantedBy = ["hyprland-session.target"];
