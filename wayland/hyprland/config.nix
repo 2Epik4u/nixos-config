@@ -60,8 +60,8 @@ in {
     exec-once = ${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1
 
     # windowrules
-    windowrulev2 = opacity 0.9 0.9,class:^(foot)$
-    windowrulev2 = opacity 0.9 0.9,class:^(alacritty)$
+    windowrulev2 = opacity 0.8 0.8,class:^(Alacritty)$
+
     windowrule=float,title:^(Firefox — Sharing Indicator)$
     windowrulev2 = float,title:^(Firefox — Sharing Indicator)$
     windowrule = tile,^(vegas140.exe)

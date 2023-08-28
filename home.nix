@@ -2,16 +2,8 @@
   
 {
   imports = [
-      # home pkgs
-      ./alacritty.nix
-      ./dunst.nix
-      ./git.nix
-      ./gtk.nix
-      ./qt.nix
-      ./starship.nix
+      ./programs
       ./wayland
-      ./xdg.nix
-      ./chromium.nix
   ]; 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

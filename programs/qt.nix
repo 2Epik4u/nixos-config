@@ -1,4 +1,4 @@
- # https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/themes/qt.nix
+# https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/themes/qt.nix
 
  {
   pkgs,

@@ -5,7 +5,6 @@ pkgs,
 # https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/graphical/apps/chromium/default.nix
 # extensions dont work on ungoogled without managing all
 programs.chromium = {
-    enable = true;
     package = pkgs.ungoogled-chromium.override {
     commandLineArgs =
       [
