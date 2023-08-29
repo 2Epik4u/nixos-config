@@ -18,8 +18,8 @@
  
     # sorta essential
     alacritty
-    gnome.file-roller
-    gnome.nautilus
+    cinnamon.nemo
+    cinnamon.nemo-with-extensions
     mate.mate-polkit
     zsh
     vim

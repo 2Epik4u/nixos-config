@@ -19,8 +19,7 @@
     "x-scheme-handler/http" = browser;
     "x-scheme-handler/https" = browser;
     "x-scheme-handler/unknown" = browser;
-    "inode/directory" = ["org.gnome.Nautilus.desktop"];
-
+    "inode/directory" = ["nemo"];
     "audio/*" = ["mpv.desktop"];
     "video/*" = ["mpv.dekstop"];
     "image/*" = ["imv.desktop"];
