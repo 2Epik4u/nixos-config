@@ -22,7 +22,7 @@
     "inode/directory" = ["nemo.desktop"];
     "audio/*" = ["mpv.desktop"];
     "video/*" = ["mpv.dekstop"];
-    "image/*" = ["imv.desktop"];
+    "image/*" = ["imv-dir.desktop"];
     "application/json" = browser;
     "application/pdf" = browser;
     "application/x-kdbx" = ["org.keepassxc.KeePassXC.desktop"];

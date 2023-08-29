@@ -48,24 +48,20 @@
   in
   [ myOverlay ];
    services.gvfs.enable = true; # Mount, trash, and other functionalities
-       
    programs.zsh.autosuggestions.enable = true;
    programs.partition-manager.enable = true;
    programs.dconf.enable = true; 
-
    services.flatpak.enable = true;
    fonts.fontDir.enable = true;
    programs.hyprland.enable = true;
+   programs.zsh.enable = true;
+   hardware.bluetooth.enable = true;
+   services.blueman.enable = true;
    fonts.packages = with pkgs; [
     twemoji-color-font
     material-symbols
     lexend
   ];
-
-   programs.zsh.enable = true;
-   # Bluetooth
-   hardware.bluetooth.enable = true;
-   services.blueman.enable = true;
 
   # Nix settings
    nix.settings.auto-optimise-store = true;
@@ -75,15 +71,6 @@
     experimental-features = nix-command flakes
   '';
 }; 
-  
-# required for steam
-   programs.steam = {
-  	enable = true;
-  	remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  	dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-};
- 
-
   nix.settings = {
     substituters = [
     "https://nix-gaming.cachix.org"
@@ -94,8 +81,6 @@
     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
-  # Use the systemd EFI boot loader.
-
    boot.loader.grub.device = "nodev";
    boot.loader.grub.efiSupport = true;
    boot.loader.grub.useOSProber = true;
@@ -110,9 +95,9 @@
   hardware.opengl.enable = true; 
    # Pick only one of the below networking options.
    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-   programs.nm-applet.enable = true;
-   networking.nameservers = [ "1.1.1.1" ];
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  programs.nm-applet.enable = true;
+  networking.nameservers = [ "1.1.1.1" ];
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -128,7 +113,7 @@
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
 
-  # Enable the X11 windowing system.
+   # Enable the X11 windowing system.
    services.xserver.enable = true;
    services.xserver.displayManager.sddm.enable = true;
 
@@ -137,10 +122,10 @@
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-   services.printing.enable = true;
+  services.printing.enable = true;
 
   # Enable sound.
-   sound.enable = true;
+  sound.enable = true;
 
  
   services.pipewire = {
@@ -162,11 +147,8 @@
   security.rtkit.enable = true;
 
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.justin = {
+  users.users.justin = {
      isNormalUser = true;
      home = "/home/justin";
      extraGroups = [ "wheel" "networkmanager" "video" ]; # Enable ‘sudo’ for the user.
@@ -178,11 +160,7 @@
   users.users.justin.shell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
  
-  # variables
-  environment.sessionVariables = {
-	MOZ_ENABLE_WAYLAND = "1";  
-	NIXOS_OZONE_WL = "1";
-};
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # environment.systemPackages = with pkgs; [
@@ -193,11 +171,6 @@
     automatic = true;
     dates = "daily";
     options = "--delete-older-than 5h";
-  };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -215,6 +188,11 @@
 
   # Security polkit
    security.polkit.enable = true;	
+
+   xdg.portal = {
+     enable = true;
+     extraPortals = [pkgs.xdg-desktop-portal-gtk];
+   };
    
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -3,7 +3,7 @@
 home.file."firefox-wavefox-theme" = {
       target = ".mozilla/firefox/default/chrome/wavefox";
       source = builtins.fetchTarball {
-                url = "https://github.com/QNetITQ/WaveFox/archive/master.tar.gz";
+                url = "https://github.com/QNetITQ/WaveFox/archive/refs/tags/v1.6.117.tar.gz";
                 sha256 = "1kmag8lhhkyw62z4p5vwb14azk681ijckbqzx8ysbbd6izj6dzsn";
                 };
 };

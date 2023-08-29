@@ -30,20 +30,17 @@
     qbittorrent 
     krita 
     obs-studio 
-
-    # games / game related
-    lutris 
-    imv 
-    protontricks
-    inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
+    imv
     libsForQt5.kate
+
+
+
     # credits: yavko
     # catppuccin theme for qt-apps
     qt5.qttools
     qt6Packages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
-
     font-manager
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

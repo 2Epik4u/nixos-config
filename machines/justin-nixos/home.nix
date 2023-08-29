@@ -27,15 +27,16 @@
   # environment.
   nixpkgs.config.allowUnfreePredicate = _: true;
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
+    # games / game related
+    steam
+    protontricks
+    inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
+    # grapejuice # when it works properly ill add it
   ];
 
   programs.chromium = {
     enable = false;
   };
-
-
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
