@@ -1,7 +1,7 @@
 {
   description = "epik's NixOS and Home Manager configuration";
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, grub2-themes, ... }: {
     homeConfigurations."justin@justin-nixos" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
@@ -10,16 +10,13 @@
       ];
     };
     nixosConfigurations = {
-
-
       justin-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	      specialArgs = {
-	        inherit inputs;
-	      };
+        specialArgs = {inherit inputs;};
         modules = [
           ./machines/justin-nixos/configuration.nix
           home-manager.nixosModules.home-manager
+          grub2-themes.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -34,12 +31,11 @@
 
       justin-laptop-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	      specialArgs = {
-	        inherit inputs;
-	      };
+        specialArgs = {inherit inputs;};
         modules = [
           ./machines/justin-laptop-nixos/configuration.nix
           home-manager.nixosModules.home-manager
+          grub2-themes.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -71,6 +67,9 @@
     };
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
+    };
+    grub2-themes = {
+      url = "github:vinceliuice/grub2-themes";
     };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";

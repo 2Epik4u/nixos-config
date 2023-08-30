@@ -2,14 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, inputs,  ... }:
+{ config, pkgs, inputs, lib,  ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-
+    [
       # pipewire package
-      inputs.nix-gaming.nixosModules.pipewireLowLatency 
+      inputs.nix-gaming.nixosModules.pipewireLowLatency
     ];
   nixpkgs.config.allowUnfree = true;
   
@@ -81,9 +80,16 @@
     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
-   boot.loader.grub.device = "nodev";
-   boot.loader.grub.efiSupport = true;
-   boot.loader.grub.useOSProber = true;
+   boot.loader.grub = {
+    device = "nodev";
+    efiSupport = true;
+    useOSProber = true;
+   };
+   boot.loader.grub2-theme = {
+    enable = true;
+    theme = "stylish";
+    footer = true;
+   };
    boot.loader.efi.canTouchEfiVariables = true;
    boot.loader.efi.efiSysMountPoint = "/boot";
 
