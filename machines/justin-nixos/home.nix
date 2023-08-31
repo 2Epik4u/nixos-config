@@ -31,7 +31,8 @@
     steam
     protontricks
     inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
-    # grapejuice # when it works properly ill add it
+    grapejuice
+    gamescope
   ];
 
   programs.chromium = {

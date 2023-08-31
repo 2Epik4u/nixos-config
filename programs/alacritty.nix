@@ -24,8 +24,6 @@
         primary = {
             background = "#1E1E2E";
             foreground = "#CDD6F4";
-	    dim_foreground = "#CDD6F4";
-	    bright_foreground = "#CDD6F4";
         };
         normal = {
           black = "#CDD6F4";

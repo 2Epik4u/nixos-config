@@ -21,10 +21,10 @@
 
     modules-right = [
         "pulseaudio"
-        "network"
         "cpu"
         "memory"
         "clock"
+        "tray"
         "custom/power"
     ];
 
@@ -82,7 +82,7 @@
     };
     "custom/power" =  {
         format = "";
-        on-click = "${pkgs.wlogout}/bin/wlogout Hyprland";
+        on-click = "${pkgs.wlogout}/bin/wlogout -p layer-shell";
     };
     clock = {
         format = "{:%I:%M %p}";
@@ -97,7 +97,10 @@
         on-scroll-up = "${hyprctl} dispatch workspace e+1";
         on-scroll-down = "${hyprctl} dispatch workspace e-1";
     };
-
+    tray = {
+        icon-size = 15;
+        spacing = 10;
+    };
     "hyprland/window" = {
         max-length = 200;
         seperate-outputs = true;

@@ -5,7 +5,7 @@
     homeConfigurations."justin@justin-nixos" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
-        hyprland.homeManagerModules.default
+        inputs.hyprland.homeManagerModules.default
         # ...
       ];
     };
