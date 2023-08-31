@@ -67,12 +67,6 @@
         max-length = 25;
 
     };
-    network = {
-        format-wifi = "";
-        tooltip-format-wifi = "{essid} {signalStrength}%";
-        format-ethernet = "";
-        format-disconnected = "";
-    };
     cpu = {
         format = " {usage}%";
     };
@@ -83,6 +77,7 @@
     "custom/power" =  {
         format = "";
         on-click = "${pkgs.wlogout}/bin/wlogout -p layer-shell";
+        tooltip = false;
     };
     clock = {
         format = "{:%I:%M %p}";

@@ -62,7 +62,6 @@ button:hover {
 #disk,
 #temperature,
 #backlight,
-#network,
 #pulseaudio,
 #wireplumber,
 #custom-media,
@@ -141,13 +140,6 @@ label:focus {
     color: #90b1b1;
 }
 
-#network {
-    color: #74c7ec;
-}
-
-#network.disconnected {
-   color: #f53c3c;
-}
 
 #pulseaudio {
     color: #b4befe;
