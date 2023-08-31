@@ -51,7 +51,7 @@
         on-click = "${pavucontrol}";
     };
     battery = {
-        interval = 60;
+        interval = 20;
         states = {
             warning = 30;
             critical = 15;
