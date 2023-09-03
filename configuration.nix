@@ -51,16 +51,21 @@
    programs.partition-manager.enable = true;
    programs.dconf.enable = true; 
    services.flatpak.enable = true;
-   fonts.fontDir.enable = true;
    programs.hyprland.enable = true;
    programs.zsh.enable = true;
    hardware.bluetooth.enable = true;
    services.blueman.enable = true;
-   fonts.packages = with pkgs; [
-    twemoji-color-font
-    material-symbols
-    lexend
-  ];
+   # fonts
+   fonts = {
+    packages = with pkgs; [
+      material-symbols
+      lexend
+      twitter-color-emoji
+    ];
+    fontconfig.defaultFonts = {
+      emoji = ["Twitter Color Emoji"];
+  };
+};
 
   # Nix settings
    nix.settings.auto-optimise-store = true;

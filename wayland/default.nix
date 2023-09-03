@@ -8,6 +8,7 @@
 home.packages = with pkgs; [
     fuzzel
     swaybg
+    wayvnc
 ];
 
   # variables

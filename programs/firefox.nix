@@ -16,6 +16,7 @@ programs.firefox = {
                 "layout.css.has-selector.enabled" = true;
                 "svg.context-properties.content.enabled" = true;
                 "userChrome.Tabs.Option8.Enabled" = true;
+                "dom.events.asyncClipboard.readText" = true;
         };
         userChrome = ''
             @import "wavefox/chrome/userChrome.css";
