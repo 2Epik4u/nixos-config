@@ -56,7 +56,7 @@ in {
 
     # executables
     exec-once = hyprctl setcursor ${pointer.name} ${toString pointer.size}
-    exec-once = swaybg -o '*' -i ${config.home.homeDirectory}/wall/leaves.png -m fill
+    exec-once = swaybg -o '*' -i ${config.home.homeDirectory}/wall/space.png -m fill
     exec-once = ${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1
     exec-once = ${pkgs.emote}/bin/emote
 

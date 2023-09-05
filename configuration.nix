@@ -57,6 +57,7 @@
    services.blueman.enable = true;
    # fonts
    fonts = {
+   fontDir.enable = true;
     packages = with pkgs; [
       material-symbols
       lexend

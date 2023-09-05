@@ -21,7 +21,7 @@
     "x-scheme-handler/unknown" = browser;
     "inode/directory" = ["nemo.desktop"];
     "audio/*" = ["mpv.desktop"];
-    "video/*" = ["mpv.dekstop"];
+    "video/*" = ["mpv.desktop"];
     "image/*" = ["imv-dir.desktop"];
     "application/json" = browser;
     "application/pdf" = browser;
