@@ -28,10 +28,11 @@ in {
     bind = $mod,P,pseudo,
     bind = $mod,V,togglefloating,
     bind = $mod,SPACE,exec,fuzzel
-    bind=$mod,a,movefocus,l
-    bind=$mod,d,movefocus,r
-    bind=$mod,w,movefocus,u
-    bind=$mod,s,movefocus,d
+    bind = $mod,a,movefocus,l
+    bind = $mod,d,movefocus,r
+    bind = $mod,w,movefocus,u
+    bind = $mod,s,movefocus,d
+    bind = $mod,period,exec,emote
 
     xwayland {
       force_zero_scaling = true
@@ -54,10 +55,10 @@ in {
 
 
     # executables
-    # from https://github.com/fufexan/dotfiles/blob/5f00d66445c353f94dad1460c8f2a61ff7aac56d/home/wayland/hyprland/config.nix#L18
     exec-once = hyprctl setcursor ${pointer.name} ${toString pointer.size}
     exec-once = swaybg -o '*' -i ${config.home.homeDirectory}/wall/leaves.png -m fill
     exec-once = ${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1
+    exec-once = ${pkgs.emote}/bin/emote
 
     # windowrules
     windowrulev2 = opacity 0.8 0.8,class:^(Alacritty)$
