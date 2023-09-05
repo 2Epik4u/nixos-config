@@ -17,8 +17,7 @@
 
     # sorta essential
     alacritty
-    cinnamon.nemo
-    cinnamon.nemo-with-extensions
+
     mate.mate-polkit
     zsh
     vim
@@ -46,15 +45,16 @@
   };
   in
   [ myOverlay ];
-   services.gvfs.enable = true; # Mount, trash, and other functionalities
+
    programs.zsh.autosuggestions.enable = true;
    programs.partition-manager.enable = true;
    programs.dconf.enable = true;
-   services.flatpak.enable = true;
    programs.hyprland.enable = true;
    programs.zsh.enable = true;
-   hardware.bluetooth.enable = true;
+   services.gvfs.enable = true; # Mount, trash, and other functionalities
+   services.flatpak.enable = true;
    services.blueman.enable = true;
+   services.tumbler.enable = true; # Thumbnail support for images
    # fonts
    fonts = {
    fontDir.enable = true;
@@ -64,7 +64,6 @@
       twitter-color-emoji
     ];
     fontconfig = {
-      enable = true;
       defaultFonts = {
         emoji = ["Twitter Color Emoji"];
     };
@@ -99,8 +98,10 @@
   hardware.opengl.driSupport32Bit = true;
   # also opengl
   hardware.opengl.enable = true;
-   # Pick only one of the below networking options.
-   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  hardware.bluetooth.enable = true;
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   programs.nm-applet.enable = true;
   networking.nameservers = [ "1.1.1.1" ];

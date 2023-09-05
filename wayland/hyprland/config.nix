@@ -24,7 +24,7 @@ in {
     bindm = $mod,mouse:273,resizewindow
     bind = $mod,F,fullscreen,0
     bind = $mod,RETURN,exec,alacritty
-    bind = $mod,TAB,exec,nemo
+    bind = $mod,TAB,exec,thunar
     bind = $mod,P,pseudo,
     bind = $mod,V,togglefloating,
     bind = $mod,SPACE,exec,fuzzel
