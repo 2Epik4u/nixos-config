@@ -11,10 +11,10 @@
       inputs.nix-gaming.nixosModules.pipewireLowLatency
     ];
   nixpkgs.config.allowUnfree = true;
-  
+
   environment.systemPackages = with pkgs;
 [
- 
+
     # sorta essential
     alacritty
     cinnamon.nemo
@@ -49,7 +49,7 @@
    services.gvfs.enable = true; # Mount, trash, and other functionalities
    programs.zsh.autosuggestions.enable = true;
    programs.partition-manager.enable = true;
-   programs.dconf.enable = true; 
+   programs.dconf.enable = true;
    services.flatpak.enable = true;
    programs.hyprland.enable = true;
    programs.zsh.enable = true;
@@ -63,8 +63,11 @@
       lexend
       twitter-color-emoji
     ];
-    fontconfig.defaultFonts = {
-      emoji = ["Twitter Color Emoji"];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        emoji = ["Twitter Color Emoji"];
+    };
   };
 };
 
@@ -75,7 +78,7 @@
      extraOptions = ''
     experimental-features = nix-command flakes
   '';
-}; 
+};
   nix.settings = {
     substituters = [
     "https://nix-gaming.cachix.org"
@@ -95,7 +98,7 @@
   # For 32 bit applications
   hardware.opengl.driSupport32Bit = true;
   # also opengl
-  hardware.opengl.enable = true; 
+  hardware.opengl.enable = true;
    # Pick only one of the below networking options.
    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -130,7 +133,7 @@
   # Enable sound.
   sound.enable = true;
 
- 
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -138,14 +141,14 @@
     pulse.enable = true;
 
     lowLatency = {
-      # enable this module      
+      # enable this module
       enable = true;
       # defaults (no need to be set unless modified)
       quantum = 64;
       rate = 48000;
     };
   };
-  
+
   # make pipewire realtime-capable
   security.rtkit.enable = true;
 
@@ -162,7 +165,7 @@
   # Set shell as well
   users.users.justin.shell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
- 
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -190,13 +193,13 @@
    services.openssh.enable = true;
 
   # Security polkit
-   security.polkit.enable = true;	
+   security.polkit.enable = true;
 
    xdg.portal = {
      enable = true;
      extraPortals = [pkgs.xdg-desktop-portal-gtk];
    };
-   
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
