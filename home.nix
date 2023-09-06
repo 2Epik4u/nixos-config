@@ -25,28 +25,12 @@
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    keepassxc  
-    dolphin-emu 
-    qbittorrent 
-    krita 
-    obs-studio 
-    imv
-    libsForQt5.kate
-
-
-
     # credits: yavko
     # catppuccin theme for qt-apps
     qt5.qttools
     qt6Packages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
-    font-manager
-
-    # idk git cli that much
-    github-desktop
-    # Emoji Picker
-    emote
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

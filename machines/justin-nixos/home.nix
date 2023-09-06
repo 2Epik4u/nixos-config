@@ -31,12 +31,21 @@
     steam
     protontricks
     inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
-    grapejuice
     gamescope
+    grapejuice
   ];
-
+  # weird fix till cursor is fixed
+  xdg.desktopEntries = {
+    grapejuice = {
+        type = "Application";
+        name = "Roblox App Wayland";
+        icon = "grapejuice-roblox-player";
+        exec = "${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 --adaptive-sync --immediate-flips --force-windows-fullscreen --force-grab-cursor -f -- ${pkgs.grapejuice}/bin/grapejuice app";
+        categories = [ "Game" ];
+    };
+  };
   programs.chromium = {
-    enable = false;
+    enable = false;r
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

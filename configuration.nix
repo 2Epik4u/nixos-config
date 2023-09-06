@@ -35,16 +35,26 @@
     starship
     dunst
     keepassxc
-    discord
+    (pkgs.discord.override {
+          withVencord = true;
+    })
     partition-manager
+    keepassxc
+    dolphin-emu
+    qbittorrent
+    krita
+    obs-studio
+    imv
+    libsForQt5.kate
+    # idk git cli that much
+    github-desktop
+    # Emoji Picker
+    emote
+    font-manager
+    audacity
+
+
 ];
-  nixpkgs.overlays =
-  let
-    myOverlay = self: super: {
-      discord = super.discord.override { withVencord = true; };
-  };
-  in
-  [ myOverlay ];
 
    programs.zsh.autosuggestions.enable = true;
    programs.partition-manager.enable = true;
