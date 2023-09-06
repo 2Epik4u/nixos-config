@@ -1,6 +1,6 @@
 {config, ...}: let
 # https://github.com/fufexan/dotfiles/blob/main/home/programs/xdg.nix
-  browser = ["chromium-browser.desktop"];
+  browser = ["firefox.desktop"];
   texteditor = ["org.gnome.gedit.desktop"];
   code = ["org.kde.kate.desktop"];
   # XDG MIME types
