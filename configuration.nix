@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, inputs,  ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports =
@@ -52,7 +52,10 @@
     emote
     font-manager
     audacity
-
+    appimage-run
+    gnome.nautilus
+    gradience
+    filezilla
 
 ];
 
@@ -64,7 +67,8 @@
    services.gvfs.enable = true; # Mount, trash, and other functionalities
    services.flatpak.enable = true;
    services.blueman.enable = true;
-   services.tumbler.enable = true; # Thumbnail support for images
+
+
    # fonts
    fonts = {
    fontDir.enable = true;
@@ -101,6 +105,13 @@
    boot.loader.systemd-boot.enable = true;
    boot.loader.efi.canTouchEfiVariables = true;
    boot.loader.efi.efiSysMountPoint = "/boot";
+
+    # run appimages with appimage-run
+    boot.binfmt.registrations = lib.genAttrs ["appimage" "AppImage"] (ext: {
+      recognitionType = "extension";
+      magicOrExtension = ext;
+      interpreter = "/run/current-system/sw/bin/appimage-run";
+    });
 
   # vulkan
   hardware.opengl.driSupport = true;
@@ -211,7 +222,7 @@
      extraPortals = [pkgs.xdg-desktop-portal-gtk];
    };
 
-  # Open ports in the firewall.
+
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.

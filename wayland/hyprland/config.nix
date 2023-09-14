@@ -24,7 +24,7 @@ in {
     bindm = $mod,mouse:273,resizewindow
     bind = $mod,F,fullscreen,0
     bind = $mod,RETURN,exec,alacritty
-    bind = $mod,TAB,exec,thunar
+    bind = $mod,TAB,exec,nautilus
     bind = $mod,P,pseudo,
     bind = $mod,V,togglefloating,
     bind = $mod,SPACE,exec,fuzzel
@@ -100,6 +100,7 @@ in {
     }
 
     decoration {
+      multisample_edges = true
       rounding=8
       blur {
         enabled = true

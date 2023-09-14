@@ -33,6 +33,9 @@
     inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
     gamescope
     grapejuice
+    lutris
+    wineWowPackages.waylandFull
+    bottles
   ];
   # weird fix till cursor is fixed
   xdg.desktopEntries = {

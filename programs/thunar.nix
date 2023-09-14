@@ -21,4 +21,10 @@
         TerminalEmulator=alacritty
       '';
     };
+
+    # hyprland please dont tile on the windows
+      wayland.windowManager.hyprland.extraConfig = ''
+          windowrule=float,^(File Operation Progress)$
+        '';
+
 }
