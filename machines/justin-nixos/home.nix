@@ -35,7 +35,6 @@
     grapejuice
     lutris
     wineWowPackages.waylandFull
-    bottles
   ];
   # weird fix till cursor is fixed
   xdg.desktopEntries = {

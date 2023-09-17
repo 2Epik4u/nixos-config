@@ -3,8 +3,8 @@
 home.file."firefox-wavefox-theme" = {
       target = ".mozilla/firefox/default/chrome/wavefox";
       source = builtins.fetchTarball {
-                url = "https://github.com/QNetITQ/WaveFox/archive/refs/tags/v1.6.117.tar.gz";
-                sha256 = "1kmag8lhhkyw62z4p5vwb14azk681ijckbqzx8ysbbd6izj6dzsn";
+                url = "https://github.com/QNetITQ/WaveFox/archive/refs/tags/v1.6.118.tar.gz";
+                sha256 = "1ldirhs9qjbaiwz70n01m1qydjlhs2w89rl3nyc0q6svb64b8bp4";
                 };
 };
 
