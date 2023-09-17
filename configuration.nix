@@ -56,7 +56,7 @@
     gnome.nautilus
     gradience
     filezilla
-
+    ffmpeg
 ];
 
    programs.zsh.autosuggestions.enable = true;

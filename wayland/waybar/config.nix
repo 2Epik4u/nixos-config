@@ -12,7 +12,7 @@
 
     # Choose the order of the modules
     modules-left = [
-        "wlr/workspaces"
+        "hyprland/workspaces"
     ];
 
     modules-center = [
