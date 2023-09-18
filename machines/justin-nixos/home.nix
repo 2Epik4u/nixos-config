@@ -46,6 +46,18 @@
         categories = [ "Game" ];
     };
   };
+  xdg.desktopEntries = {
+    toonmux = {
+        type = "Application";
+        name = "toonmux";
+        icon = "toontown-rewritten";
+        exec = "/home/justin/toonmux/target/release/toonmux";
+        # i know this is supposed to be declarative and all
+        # but i cant for my life get the package to build through nixpkgs
+        # (https://github.com/JonathanHelianthicusDoe/toonmux)
+        categories = [ "Game" ];
+    };
+  };
   programs.chromium = {
     enable = false;
   };
