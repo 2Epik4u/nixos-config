@@ -67,6 +67,7 @@ in {
     windowrulev2 = float,title:^(Firefox — Sharing Indicator)$
     windowrule = tile,^(vegas140.exe)
     windowrulev2 = nofullscreenrequest,class:^(org.kde.dolphin)$
+    windowrulev2 = float,title:^(toonmux)$
     windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
     windowrulev2 = noanim,class:^(xwaylandvideobridge)$
     windowrulev2 = nofocus,class:^(xwaylandvideobridge)$

@@ -70,6 +70,10 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    toonmux = {
+      url = "github:2Epik4u/toonmux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
  }
 

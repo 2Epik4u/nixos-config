@@ -148,6 +148,27 @@
         "type": "github"
       }
     },
+    "flake-parts_4": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "toonmux",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1693611461,
+        "narHash": "sha256-aPODl8vAgGQ0ZYFIRisxYG5MOGSkIczvu2Cd8Gb9+1Y=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "7f53fdb7bdc5bb237da7fefef12d099e4fd611ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems_4"
@@ -682,7 +703,8 @@
         "hyprland-contrib": "hyprland-contrib",
         "linuxmobile": "linuxmobile",
         "nix-gaming": "nix-gaming",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_5",
+        "toonmux": "toonmux"
       }
     },
     "rust-overlay": {
@@ -789,6 +811,27 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "toonmux": {
+      "inputs": {
+        "flake-parts": "flake-parts_4",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1695043621,
+        "narHash": "sha256-BgDRwyYCIGSOXHEr5c8sFqGsrhG3fsaeI6FBzCDopoU=",
+        "owner": "2Epik4u",
+        "repo": "toonmux",
+        "rev": "8eb65d2cb9e249ce20dbf5080779e6cb558e8a03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "2Epik4u",
+        "repo": "toonmux",
         "type": "github"
       }
     },

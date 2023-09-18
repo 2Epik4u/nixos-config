@@ -14,7 +14,7 @@
             monitor=,1920x1080@144,0x0,1
             monitor=HDMI-A-1,1920x1080, 1920x0, 1
     '';
-  # This value determines the Home Manager release that your configuration is
+  # This value determines the Home Manager release that your configuration isg
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
   #
@@ -35,6 +35,7 @@
     grapejuice
     lutris
     wineWowPackages.waylandFull
+    inputs.toonmux.packages.${pkgs.system}.toonmux
   ];
   # weird fix till cursor is fixed
   xdg.desktopEntries = {
@@ -51,10 +52,7 @@
         type = "Application";
         name = "toonmux";
         icon = "toontown-rewritten";
-        exec = "/home/justin/toonmux/target/release/toonmux";
-        # i know this is supposed to be declarative and all
-        # but i cant for my life get the package to build through nixpkgs
-        # (https://github.com/JonathanHelianthicusDoe/toonmux)
+        exec = "${inputs.toonmux.packages.${pkgs.system}.toonmux}/bin/toonmux";
         categories = [ "Game" ];
     };
   };
