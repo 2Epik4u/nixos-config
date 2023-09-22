@@ -57,16 +57,48 @@
     gradience
     filezilla
     ffmpeg
+    ffmpegthumbnailer
+    vlc
 ];
 
-   programs.zsh.autosuggestions.enable = true;
-   programs.partition-manager.enable = true;
-   programs.dconf.enable = true;
-   programs.hyprland.enable = true;
-   programs.zsh.enable = true;
-   services.gvfs.enable = true; # Mount, trash, and other functionalities
-   services.flatpak.enable = true;
-   services.blueman.enable = true;
+   programs = {
+      zsh.autosuggestions.enable = true;
+      partition-manager.enable = true;
+      dconf.enable = true;
+      hyprland.enable = true;
+      zsh.enable = true;
+      kdeconnect.enable = true;
+      nm-applet.enable = true;
+   };
+    # List services that you want to enable:
+   services = {
+      gvfs.enable = true; # Mount, trash, and other functionalities
+      flatpak.enable = true;
+      blueman.enable = true;
+      # Enable the X11 windowing system.
+      xserver.enable = true;
+      xserver.displayManager.sddm.enable = true;
+      # Enable the OpenSSH daemon.
+      openssh.enable = true;
+      # cups
+      printing.enable = true;
+
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+
+      lowLatency = {
+        # enable this module
+        enable = true;
+        # defaults (no need to be set unless modified)
+        quantum = 64;
+        rate = 48000;
+      };
+    };
+
+  };
 
 
    # fonts
@@ -102,9 +134,12 @@
     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
-   boot.loader.systemd-boot.enable = true;
-   boot.loader.efi.canTouchEfiVariables = true;
-   boot.loader.efi.efiSysMountPoint = "/boot";
+
+   boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot";
+  };
 
     # run appimages with appimage-run
     boot.binfmt.registrations = lib.genAttrs ["appimage" "AppImage"] (ext: {
@@ -114,24 +149,26 @@
     });
 
   # vulkan
-  hardware.opengl.driSupport = true;
-  # For 32 bit applications
-  hardware.opengl.driSupport32Bit = true;
-  # also opengl
-  hardware.opengl.enable = true;
+  hardware = {
+    opengl.driSupport = true;
+    # For 32 bit applications
+    opengl.driSupport32Bit = true;
+    # also opengl
+    opengl.enable = true;
 
-  hardware.bluetooth.enable = true;
+    bluetooth.enable = true;
+  };
+
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  programs.nm-applet.enable = true;
   networking.nameservers = [ "1.1.1.1" ];
   # Set your time zone.
-  time.timeZone = "America/New_York";
+  time = {
+    timeZone = "America/New_York";
+    hardwareClockInLocalTime = true;
+  };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
    i18n.defaultLocale = "en_US.UTF-8";
@@ -141,39 +178,12 @@
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
 
-   # Enable the X11 windowing system.
-   services.xserver.enable = true;
-   services.xserver.displayManager.sddm.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
 
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-
-    lowLatency = {
-      # enable this module
-      enable = true;
-      # defaults (no need to be set unless modified)
-      quantum = 64;
-      rate = 48000;
-    };
-  };
-
   # make pipewire realtime-capable
   security.rtkit.enable = true;
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {
@@ -209,10 +219,6 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
 
   # Security polkit
    security.polkit.enable = true;

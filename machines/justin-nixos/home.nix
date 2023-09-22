@@ -38,6 +38,7 @@
     inputs.toonmux.packages.${pkgs.system}.toonmux
   ];
   # weird fix till cursor is fixed
+
   xdg.desktopEntries = {
     grapejuice = {
         type = "Application";
@@ -54,6 +55,15 @@
         icon = "toontown-rewritten";
         exec = "${inputs.toonmux.packages.${pkgs.system}.toonmux}/bin/toonmux";
         categories = [ "Game" ];
+    };
+  };
+    xdg.desktopEntries = {
+      steam = {
+        type = "Application";
+        name = "Steam (pipewire support)";
+        icon = "steam";
+        exec = "${pkgs.steam}/bin/steam -pipewire";
+        categories = [ "Game" "Application" ];
     };
   };
   programs.chromium = {
