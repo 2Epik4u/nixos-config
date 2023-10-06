@@ -27,7 +27,7 @@
     unzip
     wget
     # everything else
-    lxqt.qps
+    libsForQt5.plasma-systemmonitor
     mpv
     neofetch
     pavucontrol
@@ -58,8 +58,10 @@
     filezilla
     ffmpeg
     ffmpegthumbnailer
-    vlc
-];
+    cpu-x
+    libsForQt5.kdenlive
+    libreoffice
+  ];
 
    programs = {
       zsh.autosuggestions.enable = true;
@@ -80,8 +82,11 @@
       xserver.displayManager.sddm.enable = true;
       # Enable the OpenSSH daemon.
       openssh.enable = true;
-      # cups
       printing.enable = true;
+      avahi.enable = true;
+      avahi.nssmdns = true;
+      # for a WiFi printer
+      avahi.openFirewall = true;
 
       pipewire = {
         enable = true;

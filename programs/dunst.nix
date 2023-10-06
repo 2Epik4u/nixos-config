@@ -44,12 +44,12 @@
         frame_color = "#f38ba8";
       };
       urgency_low = {
-        background = "222222";
+        background = "900000";
         foreground = "#888888";
         frame_color = "#89b4fa";
       };
       urgency_normal = {
-        background = "#1E1E2E";
+        background = "900000";
         foreground = "#ffffff";
         frame_color = "#b4befe";
       };
