@@ -61,6 +61,7 @@
     cpu-x
     libsForQt5.kdenlive
     libreoffice
+    popsicle
   ];
 
    programs = {

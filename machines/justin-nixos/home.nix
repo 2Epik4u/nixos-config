@@ -11,8 +11,9 @@
   home.homeDirectory = "/home/justin";
   # pc monitor config
   wayland.windowManager.hyprland.extraConfig = ''
-            monitor=,1920x1080@144,0x0,1
+            monitor=DP-3,1920x1080@144,0x0,1
             monitor=HDMI-A-1,1920x1080, 1920x0, 1
+            monitor=DP-1,1366x768,3840x0,1
     '';
   # This value determines the Home Manager release that your configuration isg
   # compatible with. This helps avoid breakage when a new Home Manager release
