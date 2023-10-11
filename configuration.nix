@@ -59,10 +59,7 @@
     ffmpeg
     ffmpegthumbnailer
     cpu-x
-    libsForQt5.kdenlive
-    libreoffice
-    popsicle
-  ];
+   ];
 
    programs = {
       zsh.autosuggestions.enable = true;
