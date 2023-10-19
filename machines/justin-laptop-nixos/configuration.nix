@@ -16,6 +16,7 @@
 ];
     nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    };
     # power management
     powerManagement.enable = true;
 
