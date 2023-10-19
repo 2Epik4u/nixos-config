@@ -46,10 +46,8 @@
     obs-studio
     imv
     libsForQt5.kate
-    # idk git cli that much
-    github-desktop
-    # Emoji Picker
-    emote
+    github-desktop     # idk git cli that much
+    emote     # Emoji Picker
     font-manager
     audacity
     appimage-run
@@ -59,6 +57,9 @@
     ffmpeg
     ffmpegthumbnailer
     cpu-x
+    handbrake
+    popsicle # .desktop is called USB for some reason
+    prismlauncher
    ];
 
    programs = {
@@ -228,6 +229,7 @@
 
    xdg.portal = {
      enable = true;
+     xdgOpenUsePortal = false;
      extraPortals = [pkgs.xdg-desktop-portal-gtk];
    };
 

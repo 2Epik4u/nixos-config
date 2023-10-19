@@ -30,7 +30,7 @@
         accents = ["blue"];
         size = "compact";
         variant = "mocha";
-        tweaks = [ "rimless" "black" ];
+        tweaks = [ "rimless" ];
       };
     };
   };

@@ -52,7 +52,7 @@
   };
 
   programs.chromium = {
-    enable = false;
+    enable = true;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
