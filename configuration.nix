@@ -35,9 +35,6 @@
     starship
     dunst
     keepassxc
-    (pkgs.discord.override {
-          withVencord = true;
-    })
     partition-manager
     keepassxc
     dolphin-emu
@@ -60,7 +57,11 @@
     handbrake
     popsicle # .desktop is called USB for some reason
     prismlauncher
+    dbus
+    vesktop
+    discord
    ];
+
 
    programs = {
       zsh.autosuggestions.enable = true;

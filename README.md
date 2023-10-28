@@ -7,9 +7,10 @@ nixos config for rarely used laptop & pc setup
 # systems
 * custom pc build with an amd gpu
 * a Dell XPS 13 9360
-# inspiration
+# inspiration/credits
 * https://github.com/fufexan/dotfiles
 * https://gitlab.com/Oglo12/nixos-config/
 * https://github.com/NotAShelf/nyx
+* https://github.com/linuxmobile/kaku
 
 

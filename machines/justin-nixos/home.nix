@@ -38,7 +38,11 @@
     inputs.toonmux.packages.${pkgs.system}.toonmux
     libreoffice
     libsForQt5.kdenlive
-  ];
+    winetricks
+    jdk
+    imagemagick
+    librsvg
+    ];
   # weird fix till cursor is fixed
 
   xdg.desktopEntries = {
@@ -52,7 +56,7 @@
   };
 
   programs.chromium = {
-    enable = true;
+    enable = false;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

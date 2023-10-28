@@ -1,5 +1,4 @@
 {config, ...}: let
-# https://github.com/fufexan/dotfiles/blob/main/home/programs/xdg.nix
   browser = ["firefox.desktop"];
   texteditor = ["org.gnome.gedit.desktop"];
   code = ["org.kde.kate.desktop"];
@@ -34,7 +33,9 @@ in {
 
     mimeApps = {
       enable = true;
+      associations.added = associations;
       defaultApplications = associations;
+
     };
 
     userDirs = {

@@ -15,6 +15,8 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
   virtualisation.libvirtd.enable = true;
+  networking.firewall.allowedTCPPorts = [ 25565 19132 ];
+  networking.firewall.allowedUDPPorts = [ 25565 19132 ];
   programs.steam = {
   	enable = true;
   	remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

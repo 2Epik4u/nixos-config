@@ -59,6 +59,10 @@ in {
     exec-once = swaybg -o '*' -i ${config.home.homeDirectory}/wall/space.png -m fill
     exec-once = ${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1
     exec-once = ${pkgs.emote}/bin/emote
+    exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+    # push 2 talk
+    bindn = ,insert, pass, ^(discord)$
 
     # windowrules
     windowrulev2 = opacity 0.8 0.8,class:^(Alacritty)$
@@ -94,14 +98,17 @@ in {
         gaps_out=20
         border_size=3
         col.active_border = rgb(89b4fa) rgb(cba6f7) 270deg
-        col.group_border_active = rgba(88888888)
-        col.group_border = rgba(00000088)
+
 
         apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
     }
 
+    group {
+        col.border_active = rgba(88888888)
+
+    }
+
     decoration {
-      multisample_edges = true
       rounding=8
       blur {
         enabled = true
