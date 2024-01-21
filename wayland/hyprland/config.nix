@@ -61,8 +61,13 @@ in {
     exec-once = ${pkgs.emote}/bin/emote
     exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
+    binde =, XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+
+    binde =, XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-
+    bind =, XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+
     # push 2 talk
-    bindn = ,insert, pass, ^(discord)$
+    bindn = ,insert, pass, ^(Vesktop)$
 
     # windowrules
     windowrulev2 = opacity 0.8 0.8,class:^(Alacritty)$
@@ -140,15 +145,20 @@ in {
         vrr=1
         disable_hyprland_logo = true
     }
-
     # disable touchpad as mouse for playstation 4/5 controllers
+    # how many playstatoin controllers need this holy shit
     device:Sony Interactive Entertainment Wireless Controller Touchpad {
         enabled=no
     }
     device:Wireless Controller Touchpad {
         enabled=no
     }
-
+    device:sony-interactive-entertainment-dualsense-wireless-controller-touchpad {
+        enabled=no
+    }
+    device:dualsense-wireless-controller-touchpad {
+        enabled=no
+    }
 
 
     # ...

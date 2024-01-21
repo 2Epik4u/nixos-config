@@ -2,10 +2,8 @@
 pkgs,
 ...
 }: {
-# https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/graphical/apps/chromium/default.nix
-# extensions dont work on ungoogled without managing all
 programs.chromium = {
-    package = pkgs.ungoogled-chromium.override {
+    package = pkgs.google-chrome.override {
     commandLineArgs =
       [
         # Ungoogled features
@@ -28,6 +26,9 @@ programs.chromium = {
         "--enable-oop-rasterization"
         "--enable-zero-copy"
         "--ignore-gpu-blocklist"
+
+        # middle click scroll
+        "--enable-blink-features=MiddleClickAutoscroll"
 
     ];
  };

@@ -56,9 +56,6 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
-    linuxmobile = {
-      url = "github:linuxmobile/kaku";
-    };
     home-manager =  {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,6 +71,7 @@
       url = "github:2Epik4u/toonmux";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
  }
 

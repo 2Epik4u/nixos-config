@@ -27,17 +27,15 @@
     unzip
     wget
     # everything else
-    libsForQt5.plasma-systemmonitor
     mpv
     neofetch
     pavucontrol
-    gnome.gedit
+    pkgs.gedit
     starship
     dunst
     keepassxc
     partition-manager
     keepassxc
-    dolphin-emu
     qbittorrent
     krita
     obs-studio
@@ -55,12 +53,14 @@
     ffmpegthumbnailer
     cpu-x
     handbrake
-    popsicle # .desktop is called USB for some reason
     prismlauncher
-    dbus
     vesktop
-    discord
-   ];
+    jdk
+    mission-center
+    trigger-control
+    dolphin-emu
+    via
+  ];
 
 
    programs = {
@@ -74,12 +74,20 @@
    };
     # List services that you want to enable:
    services = {
+    xserver = {
+      enable = true;
+      libinput.enable = true;
+      displayManager = {
+        sddm = {
+          enable = true;
+        };
+      };
+    };
       gvfs.enable = true; # Mount, trash, and other functionalities
       flatpak.enable = true;
       blueman.enable = true;
       # Enable the X11 windowing system.
-      xserver.enable = true;
-      xserver.displayManager.sddm.enable = true;
+
       # Enable the OpenSSH daemon.
       openssh.enable = true;
       printing.enable = true;

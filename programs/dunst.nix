@@ -36,7 +36,6 @@
         word_wrap = "yes";
       };
 
-      fullscreen_delay_everything = {fullscreen = "delay";};
 
       urgency_critical = {
         background = "900000";

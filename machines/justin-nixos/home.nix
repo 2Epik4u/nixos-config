@@ -31,7 +31,6 @@
     # games / game related
     steam
     protontricks
-    inputs.linuxmobile.packages.${pkgs.system}.xwaylandvideobridge
     gamescope
     lutris
     wineWowPackages.waylandFull
@@ -39,7 +38,6 @@
     libreoffice
     libsForQt5.kdenlive
     winetricks
-    jdk
     imagemagick
     librsvg
     ];
@@ -53,7 +51,16 @@
         exec = "${inputs.toonmux.packages.${pkgs.system}.toonmux}/bin/toonmux";
         categories = [ "Game" ];
     };
+      missioncenter = {
+        type = "Application";
+        name = "Task Manager";
+        icon = "io.missioncenter.MissionCenter";
+        exec = "${pkgs.mission-center}/bin/missioncenter";
+        categories = [ "GTK"  "System" "Monitor"];
+        comment = "task manager system process monitor";
+    };
   };
+
 
   programs.chromium = {
     enable = false;
