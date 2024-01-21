@@ -1,5 +1,5 @@
 {config, ...}: let
-  browser = ["google-chrome.desktop"];
+  browser = ["firefox.desktop"];
   texteditor = ["org.gnome.gedit.desktop"];
   code = ["org.kde.kate.desktop"];
   # XDG MIME types
